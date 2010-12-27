@@ -3,13 +3,17 @@
   <br/>
   <%= image_tag current_user.picture_url %>
   <br/>
-  <%# Twitter.user_timeline(current_user.login, :include_rts => true).each do |tweet| %>
-  <%# current_user.setup_twitter %>
   <% Twitter.home_timeline.each do |tweet| %>
     <p>
       <%= tweet.text %>
       <br/>
-      from <%= tweet.user.screen_name %> in <%= tweet.user.location %>, <%= time_ago_in_words(tweet.created_at) %> ago.
+      <i>from <%= tweet.user.screen_name %> in <%= tweet.user.location %>, <%= time_ago_in_words(tweet.created_at) %> ago.</i>
+      <% urls = URI.extract(tweet.text, %w(http https)) %>
+      <ul>
+        <% urls.each do |url| %>
+          <li><%= link_to url, url %></li>
+        <% end %>
+      </ul>
     </p>
   <% end %>
   <br/>
