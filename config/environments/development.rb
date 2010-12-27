@@ -22,5 +22,7 @@ GiveGoodSunflower::Application.configure do
 
   # Only use best-standards-support built into browsers
   config.action_dispatch.best_standards_support = :builtin
+
+  config.middleware.use 'Rack::Bug', :secret_key => 'password'
 end
 
