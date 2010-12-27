@@ -3,6 +3,18 @@ class ApplicationController < ActionController::Base
 
   before_filter :setup_twitter
 
+  def unshorten(url)
+    begin
+      authorize = UrlShortener::Authorize.new 'suttree', 'R_a13a91dca25fcaa600db741075a291a9'
+      client = UrlShortener::Client.new(authorize)
+      expand = client.expand(:shortUrl => url)
+      expand.url
+    rescue
+      url
+    end
+  end
+  helper_method :unshorten
+
   protected
   def setup_twitter
     if current_user

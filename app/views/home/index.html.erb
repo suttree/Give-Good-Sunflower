@@ -11,10 +11,21 @@
       <% urls = URI.extract(tweet.text, %w(http https)) %>
       <ul>
         <% urls.each do |url| %>
-          <li><%= link_to url, url %></li>
+          <% url = unshorten(url) %>
+          <% doc = Pismo::Document.new(url) %>
+          <li>
+            <%= image_tag(doc.favicon, :width => 16, :height => 16) rescue nil %> <%= link_to url, url %>
+            <br/>
+            <%= doc.title %> ~ <%= doc.author %>
+            <br/>
+            <%= doc.lede %>
+            <br/>
+            <%= doc.keywords.inspect %>
+          </li>
         <% end %>
       </ul>
     </p>
+    <hr/>
   <% end %>
   <br/>
   <%= link_to 'logout', logout_path %>
