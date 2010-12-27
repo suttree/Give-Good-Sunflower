@@ -1,0 +1,21 @@
+<% if current_user %>
+  O hai, <%= current_user.login %>
+  <br/>
+  <%= image_tag current_user.picture_url %>
+  <br/>
+  <% Twitter.user_timeline(current_user.login).each do |tweet| %>
+    <p>
+      <%= tweet.text %>
+      <br/>
+      from <%= tweet.user.screen_name %> in <%= tweet.user.location %>, <%= time_ago_in_words(tweet.created_at) %> ago.
+    </p>
+  <% end %>
+<% else %>
+  O hai?
+  <br/>
+  <%= link_to login_path %>
+<% end %>
+
+<p style='float: right'>
+  <small><%= Twitter.rate_limit_status.remaining_hits.to_s + " Twitter API request(s) remaining this hour" %></small>
+</p>
