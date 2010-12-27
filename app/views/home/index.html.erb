@@ -3,17 +3,21 @@
   <br/>
   <%= image_tag current_user.picture_url %>
   <br/>
-  <% Twitter.user_timeline(current_user.login).each do |tweet| %>
+  <%# Twitter.user_timeline(current_user.login, :include_rts => true).each do |tweet| %>
+  <%# current_user.setup_twitter %>
+  <% Twitter.home_timeline.each do |tweet| %>
     <p>
       <%= tweet.text %>
       <br/>
       from <%= tweet.user.screen_name %> in <%= tweet.user.location %>, <%= time_ago_in_words(tweet.created_at) %> ago.
     </p>
   <% end %>
+  <br/>
+  <%= link_to 'logout', logout_path %>
 <% else %>
   O hai?
   <br/>
-  <%= link_to login_path %>
+  <%= link_to 'login', login_path %>
 <% end %>
 
 <p style='float: right'>
