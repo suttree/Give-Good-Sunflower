@@ -10,7 +10,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101224202128) do
+ActiveRecord::Schema.define(:version => 20101227165229) do
+
+  create_table "email_addresses", :force => true do |t|
+    t.string   "email"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "login_accounts", :force => true do |t|
     t.string   "type"
@@ -19,11 +26,14 @@ ActiveRecord::Schema.define(:version => 20101224202128) do
     t.string   "name"
     t.string   "login"
     t.string   "picture_url"
-    t.string   "access_token"
+    t.string   "token"
+    t.string   "secret"
+    t.text     "user_hash"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
+  add_index "login_accounts", ["type", "remote_account_id"], :name => "type_remote_acc_id"
   add_index "login_accounts", ["type"], :name => "index_login_accounts_on_type"
   add_index "login_accounts", ["user_id"], :name => "index_login_accounts_on_user_id"
 
