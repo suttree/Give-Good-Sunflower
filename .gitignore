@@ -6,3 +6,4 @@ tmp/**/*
 *.swo
 *.swp
 todo.txt
+.DS_Store
