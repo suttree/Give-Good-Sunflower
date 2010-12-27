@@ -12,16 +12,20 @@
       <ul>
         <% urls.each do |url| %>
           <% url = unshorten(url) %>
-          <% doc = Pismo::Document.new(url) %>
-          <li>
-            <%= image_tag(doc.favicon, :width => 16, :height => 16) rescue nil %> <%= link_to url, url %>
-            <br/>
-            <%= doc.title %> ~ <%= doc.author %>
-            <br/>
-            <%= doc.lede %>
-            <br/>
-            <%= doc.keywords.inspect %>
-          </li>
+          <% begin %>
+            <% doc = Pismo::Document.new(url) %>
+            <li>
+              <%= image_tag(doc.favicon, :width => 16, :height => 16) rescue nil %> <%= link_to url, url %>
+              <br/>
+              <%= doc.title %> ~ <%= doc.author %>
+              <br/>
+              <%= doc.lede %>
+              <br/>
+              <%= doc.keywords.inspect %>
+            </li>
+          <% rescue Exception => e %>
+            <i><%= e.message %></i> 
+          <% end %>
         <% end %>
       </ul>
     </p>
