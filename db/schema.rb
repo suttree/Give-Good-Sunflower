@@ -10,7 +10,23 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101227165229) do
+ActiveRecord::Schema.define(:version => 20101228221254) do
+
+  create_table "articles", :force => true do |t|
+    t.integer  "user_id",                          :null => false
+    t.integer  "tweet_id",            :limit => 8, :null => false
+    t.string   "twitter_screen_name"
+    t.string   "url",                              :null => false
+    t.string   "favicon"
+    t.string   "title"
+    t.string   "author"
+    t.string   "lede"
+    t.text     "html_body"
+    t.text     "body"
+    t.text     "keywords"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "email_addresses", :force => true do |t|
     t.string   "email"
