@@ -2,7 +2,7 @@ O hai, <%= current_user.login %>
 <br/>
 <%= image_tag current_user.picture_url %>
 
-<% current_user.articles.each do |article| %>
+<% @articles.each do |article| %>
   <h1><%= article.title %></h1>
   <h2><%= image_tag(article.favicon, :width => 16, :height => 16) rescue nil %> <%= link_to article.url, article.url %></h2>
   <p>
@@ -13,5 +13,13 @@ O hai, <%= current_user.login %>
     | Read later
     | Pinboard
   </small>
-  <hr/>
 <% end %>
+
+<%= will_paginate( @articles,
+  :renderer => GmailPaginationLinkRenderer,
+  :first_label => "« Newest",
+  :previous_label => "‹ Newer",
+  :next_label => "Older ›",
+  :last_label => "Oldest »",
+  :summary_label => "%d - %d of %d"
+) %>
