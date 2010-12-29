@@ -2,42 +2,26 @@
   O hai, <%= current_user.login %>
   <br/>
   <%= image_tag current_user.picture_url %>
-  <br/>
-  <% Twitter.home_timeline.each do |tweet| %>
-    <p>
-      <%= tweet.text %>
-      <br/>
-      <i>from <%= tweet.user.screen_name %> in <%= tweet.user.location %>, <%= time_ago_in_words(tweet.created_at) %> ago.</i>
-      <% urls = URI.extract(tweet.text, %w(http https)) %>
-      <ul>
-        <% urls.each do |url| %>
-          <% url = unshorten(url) %>
-          <% begin %>
-            <% doc = Pismo::Document.new(url) %>
-            <li>
-              <%= image_tag(doc.favicon, :width => 16, :height => 16) rescue nil %> <%= link_to url, url %>
-              <br/>
-              <%= doc.title %> ~ <%= doc.author %>
-              <br/>
-              <%= doc.lede %>
-              <br/>
-              <%= doc.keywords.inspect %>
-            </li>
-          <% rescue Exception => e %>
-            <i><%= e.message %></i> 
-          <% end %>
-        <% end %>
-      </ul>
-    </p>
-    <hr/>
-  <% end %>
-  <br/>
-  <%= link_to 'logout', logout_path %>
 <% else %>
   O hai?
   <br/>
   <%= link_to 'login', login_path %>
 <% end %>
+
+<p>
+  <h1>Do you Give Good Sunflower?</h1>
+  
+  Q. What is <a href='http://twitter.com'>Twitter</a> from the inside out?
+  <br/>
+  A. Content first, people later.
+  <br/>
+  <br/>
+  Sign in and all the links in your twitter stream will be instapaper'd and available to read here. And, if you really must find out who shared the link on Twitter, then you can.
+</p>
+
+<p>
+  Created by <a href='http://suttree.com/about'>Duncan Gough</a>, with a spoonful of help from <a href='https://github.com/peterc/pismo'>pismo</a>.
+</p>
 
 <p style='float: right'>
   <small><%= Twitter.rate_limit_status.remaining_hits.to_s + " Twitter API request(s) remaining this hour" %></small>
