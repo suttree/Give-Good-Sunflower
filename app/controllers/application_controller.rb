@@ -17,7 +17,7 @@ class ApplicationController < ActionController::Base
 
   protected
   def setup_twitter
-    if current_user?
+    if current_user && !current_user.nil?
       if current_user.login_account
         Twitter.configure do |config|
           config.consumer_key = Omnisocial.service_configs[:twitter].app_key
