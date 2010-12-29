@@ -16,11 +16,11 @@ ActiveRecord::Schema.define(:version => 20101228221254) do
     t.integer  "user_id",                          :null => false
     t.integer  "tweet_id",            :limit => 8, :null => false
     t.string   "twitter_screen_name"
-    t.string   "url",                              :null => false
-    t.string   "favicon"
-    t.string   "title"
-    t.string   "author"
-    t.string   "lede"
+    t.text     "url",                              :null => false
+    t.text     "favicon"
+    t.text     "title"
+    t.text     "author"
+    t.text     "lede"
     t.text     "html_body"
     t.text     "body"
     t.text     "keywords"
