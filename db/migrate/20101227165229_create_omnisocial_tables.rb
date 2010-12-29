@@ -21,12 +21,12 @@ class CreateOmnisocialTables < ActiveRecord::Migration
 
       t.timestamps
     end
-    create_table :email_addresses do |t|
-      t.string :email
-      t.references :user
+   # create_table :email_addresses do |t|
+   #   t.string :email
+   #   t.references :user
 
-      t.timestamps
-    end
+   #   t.timestamps
+   # end
 
     add_index :login_accounts, :user_id
     add_index :login_accounts, :type
