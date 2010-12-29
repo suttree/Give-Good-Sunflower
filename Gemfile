@@ -1,5 +1,6 @@
 source 'http://rubygems.org'
 
+gem 'pg'
 gem 'rails', '3.0.3'
 gem 'mysql2'
 gem "omnisocial", :git => 'git://github.com/mooktakim/omnisocial.git'
