@@ -17,12 +17,14 @@ class ApplicationController < ActionController::Base
 
   protected
   def setup_twitter
-    if current_user && current_user.login_account
-      Twitter.configure do |config|
-        config.consumer_key = Omnisocial.service_configs[:twitter].app_key
-        config.consumer_secret = Omnisocial.service_configs[:twitter].app_secret
-        config.oauth_token = current_user.login_account.token
-        config.oauth_token_secret = current_user.login_account.secret
+    if current_user?
+      if current_user.login_account
+        Twitter.configure do |config|
+          config.consumer_key = Omnisocial.service_configs[:twitter].app_key
+          config.consumer_secret = Omnisocial.service_configs[:twitter].app_secret
+          config.oauth_token = current_user.login_account.token
+          config.oauth_token_secret = current_user.login_account.secret
+        end
       end
     end
   end
