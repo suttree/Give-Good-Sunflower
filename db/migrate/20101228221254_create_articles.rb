@@ -8,7 +8,7 @@ class CreateArticles < ActiveRecord::Migration
       t.string :favicon
       t.string :title
       t.string :author
-      t.string :lede
+      t.text :lede
       t.text :html_body
       t.text :body
       t.text :keywords
