@@ -173,11 +173,14 @@ div.article p {
 
 div.article img {
   margin: 0.5em 0px;
+  max-width: 700px;
+  max-height: 500px;
 }
 
 div.article cite {
   font-size: 0.5em;
   float: left;  
+  clear: both;
 }
 
 div.pagination {
