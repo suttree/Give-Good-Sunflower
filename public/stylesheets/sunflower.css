@@ -174,8 +174,8 @@ div.article img {
 }
 
 div.article cite {
-  font-size: 1.2em;
-  float: right;  
+  font-size: 0.5em;
+  float: left;  
 }
 
 div.pagination {
