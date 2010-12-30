@@ -1,16 +1,17 @@
-<div class='dock'>
-  <a href='/'>« Back to home</a>
-  <a href='#pagination'>Scroll to bottom</a>
-</div>
-
 <%= render :partial => '/shared/pic' %>
 
+
 <% @articles.each do |article| %>
+
+
   <h1><%= article.title %></h1>
-  <div class='urls'>
-    <%= image_tag(article.favicon, :class => 'favicon') rescue nil %> <%= link_to article.url, article.url %>
-    <br/>
-    <%= image_tag('twitter.png', :class => 'favicon') %> /via <a href='http://twitter.com/<%= article.twitter_screen_name %>/statuses/<%= article.tweet_id %>'><%= article.twitter_screen_name %></a>
+  <div class='url'>
+    &lfloor; <%= link_to article.url, article.url %>
+  </div>
+  <div class='dock'>
+    <a href='/'>« Back to home</a>
+    <a href='http://twitter.com/<%= article.twitter_screen_name %>/statuses/<%= article.tweet_id %>'>@<%= article.twitter_screen_name %></a>
+    <a href='#pagination'>Scroll to bottom</a>
   </div>
   <div class='article'>
     <%= article.html_body.html_safe %>

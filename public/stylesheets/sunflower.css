@@ -74,17 +74,18 @@ body {
 }
 
 div.dock {
-  padding-bottom: 1em;
+  font-size: 0.625em; /* 10px */
+  text-align: right;
+  margin: 1.5em auto;
 }
 
 div.dock a {
-  padding-right: 2.5em;
-  font-size: 0.625em; /* 10px */
-  text-decoration: none;
+  color: blue;
+  margin: 1em 0 1em 1em;
 }
 
 div.dock a:hover {
-  text-decoration: underline;
+  text-decoration: none;
 }
 
 h1 {
@@ -113,7 +114,7 @@ h2 {
 div.content {
   text-align: left;
   color: #133753;
-  padding: 0em 2em;
+  padding: 2em;
   background: #fbfbfb;
   -webkit-box-shadow: #1F1F1F 0px 0px 5px;
 }
@@ -128,9 +129,17 @@ div.pic img {
   -webkit-box-shadow: #1F1F1F 0px 0px 2px;
 }
 
-div.urls {
-  margin: 1em;
+div.url {
+  color: #aaa;
   font-size: 0.625em; /* 10px */
+}
+
+div.url a {
+  color: #aaa;
+}
+
+div.url a:hover {
+  text-decoration: none;
 }
 
 div.home, div.article {
@@ -140,6 +149,10 @@ div.home, div.article {
 
 div.home {
   margin-top: 2em;
+}
+
+div.home a {
+  color: blue;
 }
 
 div.home ol {
@@ -157,7 +170,7 @@ div.article p {
 }
 
 div.article img {
-  margin: 0.5em 0px;
+  margin: 0.6em 0px;
 }
 
 div.pagination {
