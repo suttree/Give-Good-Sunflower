@@ -73,6 +73,17 @@ body {
   margin-right: auto;
 }
 
+h1 {
+  font-size: 1.5em; /* 24px */
+  line-height: 1.333em; /* 36px */
+  font-family: "Lucida Sans", "Lucida Grande", "Lucida Sans Unicode", sans-serif;
+}
+
+h2 {
+  font-size: 1em;
+  line-height: 1.5em; /* 24px */
+}
+
 div.content {
   text-align: left;
   padding: 1em 0;
@@ -97,13 +108,26 @@ div.urls {
   font-size: 0.625em; /* 10px */
 }
 
-div.article {
+div.home, div.article{
   padding: 1.5em 0;
   line-height: 1.8em;
 }
 
+div.home ol {
+  margin: 1em 0;
+}
+
+div.home li {
+  margin: 1em 0;
+  list-style-type: square; 
+}
+
 div.article p {
   padding: 0.5em 0em;
+}
+
+div.article img {
+  margin: 0.5em 0px;
 }
 
 div.pagination {
@@ -118,7 +142,7 @@ div.pagination a {
 
 div.footer {
   margin: 2em;
-  color: #efefef;
+  color: #181818;
   text-align: center;
   font-size: 0.625em; /* 10px */
 }
@@ -133,23 +157,19 @@ div.cta {
 div.cta ul li {
   margin: 10px;
   display: inline;
-  list-style-type:none; 
+  list-style-type: none; 
 }
 
 img.favicon, img.pinboard {
-  width: 16;
-  height: 16;
+  width: 16px;
+  height: 16px;
   margin: 2px;
   vertical-align: middle;
 }
 
-h1 {
-  font-size: 1.5em; /* 24px */
-  line-height: 1.333em; /* 36px */
-  font-family: "Lucida Sans", "Lucida Grande", "Lucida Sans Unicode", sans-serif;
-}
-
-h2 {
-  font-size: 1em;
-  line-height: 1.5em; /* 24px */
+img.sunflower {
+  width: 32px;
+  height: 32px
+  margin: 0px;
+  vertical-align: middle;
 }

@@ -1,27 +1,20 @@
 <% if current_user %>
   O hai, <%= current_user.login %>.
   You have <%= current_user.articles.count %> things <a href='/unread'>unread</a>.
-  <br/>
-  <%= image_tag current_user.picture_url %>
+  <img src='/images/sunflower.png' class='sunflower' />
+  <%= render :partial => '/shared/pic' %>
 <% else %>
   O hai?
   <br/>
   <%= link_to 'login', login_path %>
 <% end %>
 
-<p>
-  <h1>Do you Give Good Sunflower? <img src='/images/sunflower.png' width='32' height='32' /></h1>
+<div class='home'>
+  <h1>Do you Give Good Sunflower?</h1>
 
-  Sign in and all the links in your twitter stream will be pseudo-instapaper'd and available to read here.
-  <br/>
-  <br/>
-  Why? See <a href='http://suttree.com/2010/12/29/twitter-from-the-inside-out/'>http://suttree.com/2010/12/29/twitter-from-the-inside-out</a>.
-</p>
-
-<p>
-  Created by <a href='http://troisen.com'>Duncan Gough</a>, with a spoonful of help from <a href='https://github.com/peterc/pismo'>pismo</a>. Code available on <a href='https://github.com/suttree/Give-Good-Sunflower'>github</a>.
-</p>
-
-<p style='float: right'>
-  <small><%= Twitter.rate_limit_status.remaining_hits.to_s + " Twitter API request(s) remaining this hour" %></small>
-</p>
+  <ol>
+    <li>Sign in and all the links in your twitter stream will be pseudo-instapaper'd and available to read here.</li>
+    <li>Why? See <a href='http://suttree.com/2010/12/29/twitter-from-the-inside-out/'>http://suttree.com/2010/12/29/twitter-from-the-inside-out</a>.</li>
+    <li>Created by <a href='http://troisen.com'>Duncan Gough</a>, with a spoonful of help from <a href='https://github.com/peterc/pismo'>pismo</a>. Code available on <a href='https://github.com/suttree/Give-Good-Sunflower'>github</a>.</li>
+  </ol>
+</div>
