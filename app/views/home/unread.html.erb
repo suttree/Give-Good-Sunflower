@@ -4,22 +4,37 @@ O hai, <%= current_user.login %>
 
 <% @articles.each do |article| %>
   <h1><%= article.title %></h1>
-  <h2><%= image_tag(article.favicon, :width => 16, :height => 16) rescue nil %> <%= link_to article.url, article.url %></h2>
+  <div class='urls'>
+    <%= image_tag(article.favicon, :class => 'favicon') rescue nil %> <%= link_to article.url, article.url %>
+    <br/>
+    <%= image_tag('twitter.png', :class => 'favicon') %> /via <a href='http://twitter.com/<%= article.twitter_screen_name %>/statuses/<%= article.tweet_id %>'><%= article.twitter_screen_name %></a>
+  </div>
+  <hr/>
   <p>
     <%= article.html_body.html_safe %>
   </p>
-  <small>
-    /via <a href='http://twitter.com/<%= article.twitter_screen_name %>/statuses/<%= article.tweet_id %>'><%= article.twitter_screen_name %></a>
-    | <iframe border="0" scrolling="no" width="78" height="17" allowtransparency="true" frameborder="0" style="margin-bottom: -3px; z-index: 1338; border: 0px; background-color: transparent; overflow: hidden;" src="http://www.instapaper.com/e2?url=<%= CGI.escape(article.url) %>&title=<%= CGI.escape(article.title) %>&description=<%= CGI.escape('Via ' + request.host) %>" ></iframe>
-    | <a href="http://pinboard.in/add?url=<%= CGI.escape(article.url) %>&title=<%= CGI.escape(article.title) %>&description=<%= CGI.escape('Via ' + request.host) %>" target='_blank'>Pinboard</a>
-  </small>
+  <div class='cta'>
+    <ul>
+      <li>
+        <iframe border="0" scrolling="no" width="78" height="17" allowtransparency="true" frameborder="0" style="margin-bottom: -3px; z-index: 1338; border: 0px; background-color: transparent; overflow: hidden;" src="http://www.instapaper.com/e2?url=<%= CGI.escape(article.url) %>&title=<%= CGI.escape(article.title) %>&description=<%= CGI.escape('/via ' + request.host) %>" ></iframe>
+      </li>
+      <li>
+        <img src='/images/pinboard.gif' class='pinboard' /><a href="http://pinboard.in/add?url=<%= CGI.escape(article.url) %>&title=<%= CGI.escape(article.title) %>&description=<%= CGI.escape('/via ' + request.host) %>" target='_blank'>Pinboard</a>
+      </li>
+  </div>
 <% end %>
 
-<%= will_paginate( @articles,
-  :renderer => GmailPaginationLinkRenderer,
-  :first_label => "« Newest",
-  :previous_label => "‹ Newer",
-  :next_label => "Older ›",
-  :last_label => "Oldest »",
-  :summary_label => "%d - %d of %d"
-) %>
+<div class='pagination'>
+  <%= will_paginate( @articles,
+    :renderer => GmailPaginationLinkRenderer,
+    :first_label => "« Newest",
+    :previous_label => "‹ Newer",
+    :next_label => "Older ›",
+    :last_label => "Oldest »",
+    :summary_label => "%d - %d of %d"
+  ) %>
+</div>
+
+<div class='footer'>
+  Duncan Gough
+</div>
