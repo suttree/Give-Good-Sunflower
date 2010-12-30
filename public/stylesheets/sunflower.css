@@ -170,7 +170,11 @@ div.article p {
 }
 
 div.article img {
-  margin: 0.9em 0px;
+  margin: 0.5em 0px;
+}
+
+div.article cite {
+  clear: both;
 }
 
 div.pagination {
