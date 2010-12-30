@@ -1,3 +1,8 @@
+<div class='dock'>
+  <a href='/'>« Back to home</a>
+  <a href='#pagination'>Scroll to bottom</a>
+</div>
+
 <%= render :partial => '/shared/pic' %>
 
 <% @articles.each do |article| %>
@@ -21,7 +26,7 @@
   </div>
 <% end %>
 
-<div class='pagination'>
+<a name='pagination'> </a>
   <%= will_paginate( @articles,
     :renderer => GmailPaginationLinkRenderer,
     :first_label => "« Newest",
@@ -30,4 +35,3 @@
     :last_label => "Oldest »",
     :summary_label => "%d - %d of %d"
   ) %>
-</div>

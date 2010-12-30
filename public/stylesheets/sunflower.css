@@ -73,10 +73,36 @@ body {
   margin-right: auto;
 }
 
+div.dock {
+  padding-bottom: 1em;
+}
+
+div.dock a {
+  padding-right: 2.5em;
+  font-size: 0.625em; /* 10px */
+  text-decoration: none;
+}
+
+div.dock a:hover {
+  text-decoration: underline;
+}
+
 h1 {
   font-size: 1.5em; /* 24px */
   line-height: 1.333em; /* 36px */
   font-family: "Lucida Sans", "Lucida Grande", "Lucida Sans Unicode", sans-serif;
+}
+
+h1 a {
+  text-decoration: none;
+}
+
+h1 a:hover {
+  text-decoration: underline;
+}
+
+h1 a:visited {
+  color: #133753;
 }
 
 h2 {
@@ -86,9 +112,8 @@ h2 {
 
 div.content {
   text-align: left;
-  padding: 1em 0;
   color: #133753;
-  padding: 0.5em 2em;
+  padding: 0em 2em;
   background: #fbfbfb;
   -webkit-box-shadow: #1F1F1F 0px 0px 5px;
 }
@@ -108,9 +133,13 @@ div.urls {
   font-size: 0.625em; /* 10px */
 }
 
-div.home, div.article{
+div.home, div.article {
   padding: 1.5em 0;
   line-height: 1.8em;
+}
+
+div.home {
+  margin-top: 2em;
 }
 
 div.home ol {
@@ -120,6 +149,7 @@ div.home ol {
 div.home li {
   margin: 1em 0;
   list-style-type: square; 
+  list-style-position: inside;
 }
 
 div.article p {
@@ -132,6 +162,7 @@ div.article img {
 
 div.pagination {
   margin-top: 3em;
+  padding-bottom: 2em;
   font-size: 1em;
   text-align: center;
 }
@@ -171,5 +202,5 @@ img.sunflower {
   width: 32px;
   height: 32px
   margin: 0px;
-  vertical-align: middle;
+  vertical-align: top;
 }

@@ -1,19 +1,24 @@
-<% if current_user %>
-  O hai, <%= current_user.login %>.
-  You have <%= current_user.articles.count %> things <a href='/unread'>unread</a>.
+<%= render :partial => '/shared/pic' if current_user? %>
+
+<h1>
   <img src='/images/sunflower.png' class='sunflower' />
-  <%= render :partial => '/shared/pic' %>
-<% else %>
-  O hai?
-  <br/>
-  <%= link_to 'login', login_path %>
-<% end %>
+  Do you Give Good Sunflower?
+</h1>
 
 <div class='home'>
-  <h1>Do you Give Good Sunflower?</h1>
+  <b>
+    <% if current_user %>
+      O hai, <%= current_user.login %>.
+      You have <%= current_user.articles.count %> things <a href='/unread'>unread</a>.
+    <% else %>
+      O hai?
+      <br/>
+      <%= link_to 'Login', login_path %> or <%= link_to 'sign up', login_path %>.
+    <% end %>
+  </b>
 
   <ol>
-    <li>Sign in and all the links in your twitter stream will be pseudo-instapaper'd and available to read here.</li>
+    <li>Sign in and all the links in your twitter stream will be pseudo-instapaper'd and available to read.</li>
     <li>Why? See <a href='http://suttree.com/2010/12/29/twitter-from-the-inside-out/'>http://suttree.com/2010/12/29/twitter-from-the-inside-out</a>.</li>
     <li>Created by <a href='http://troisen.com'>Duncan Gough</a>, with a spoonful of help from <a href='https://github.com/peterc/pismo'>pismo</a>. Code available on <a href='https://github.com/suttree/Give-Good-Sunflower'>github</a>.</li>
   </ol>
