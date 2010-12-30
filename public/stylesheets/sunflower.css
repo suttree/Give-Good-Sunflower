@@ -68,20 +68,42 @@ body {
   font-family: Georgia, Times, "Times New Roman", serif;
   position: relative;
   background: #fbfbfb;
-  color: #080000;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 div.content {
   text-align: left;
-  width: 610px;
   padding: 1em 0;
-  color: #080000;
+  color: #133753;
+  padding: 0.5em 2em;
   background: #fbfbfb;
+  -webkit-box-shadow: #1F1F1F 0px 0px 5px;
+}
+
+div.pic {
+  float: right;
+}
+
+div.pic img {
+  height: 48px;
+  width: 48px;
+  -webkit-box-shadow: #1F1F1F 0px 0px 2px;
 }
 
 div.urls {
   margin: 1em;
   font-size: 0.625em; /* 10px */
+}
+
+div.article {
+  padding: 1.5em 0;
+  line-height: 1.8em;
+}
+
+div.article p {
+  padding: 0.5em 0em;
 }
 
 div.pagination {
@@ -118,7 +140,7 @@ img.favicon, img.pinboard {
   width: 16;
   height: 16;
   margin: 2px;
-  vertical-align: text-bottom;
+  vertical-align: middle;
 }
 
 h1 {

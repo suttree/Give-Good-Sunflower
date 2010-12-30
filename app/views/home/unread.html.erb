@@ -1,6 +1,4 @@
-O hai, <%= current_user.login %>
-<br/>
-<%= image_tag current_user.picture_url %>
+<%= render :partial => '/shared/pic' %>
 
 <% @articles.each do |article| %>
   <h1><%= article.title %></h1>
@@ -9,10 +7,9 @@ O hai, <%= current_user.login %>
     <br/>
     <%= image_tag('twitter.png', :class => 'favicon') %> /via <a href='http://twitter.com/<%= article.twitter_screen_name %>/statuses/<%= article.tweet_id %>'><%= article.twitter_screen_name %></a>
   </div>
-  <hr/>
-  <p>
+  <div class='article'>
     <%= article.html_body.html_safe %>
-  </p>
+  </div>
   <div class='cta'>
     <ul>
       <li>
@@ -36,5 +33,5 @@ O hai, <%= current_user.login %>
 </div>
 
 <div class='footer'>
-  Duncan Gough
+  http://troisen.com
 </div>
