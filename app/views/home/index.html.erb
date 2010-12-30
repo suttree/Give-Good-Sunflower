@@ -1,6 +1,6 @@
 <% if current_user %>
   O hai, <%= current_user.login %>.
-  You have <%= current_user.articles.count %> articles <a href='/unread'>unread</a>.
+  You have <%= current_user.articles.count %> things <a href='/unread'>unread</a>.
   <br/>
   <%= image_tag current_user.picture_url %>
 <% else %>
