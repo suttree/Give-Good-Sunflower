@@ -106,6 +106,10 @@ h1 a:visited {
   color: #133753;
 }
 
+h1 a.tilde:hover {
+  background-color: #efefef;
+}
+
 h2 {
   font-size: 1em;
   line-height: 1.5em; /* 24px */
@@ -132,6 +136,7 @@ div.pic img {
 
 div.url {
   color: #aaa;
+  margin-left: 40px;
   font-size: 0.625em; /* 10px */
 }
 
@@ -199,11 +204,12 @@ div.footer {
 }
 
 div.footer a {
-  color: #181818;
+  color: #ddd;
   text-decoration: none;
 }
 
 div.footer a:hover {
+  color: #ccc;
   text-decoration: underline;
 }
 

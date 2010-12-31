@@ -4,7 +4,10 @@
 <% @articles.each do |article| %>
 
 
-  <h1><%= article.title %></h1>
+  <h1>
+    <a href='/' title='Home - Give Good Sunflower' class='tilde'><img src='/images/sunflower.png' class='sunflower' /></a>
+    <%= article.title %>
+  </h1>
   <div class='url'>
     &lfloor; <%= link_to truncate(article.url, :length => 150), article.url %>
   </div>
