@@ -121,6 +121,7 @@ div.sunflower {
   padding: 2em;
   background: #fbfbfb;
   -webkit-box-shadow: #1F1F1F 0px 0px 5px;
+  -moz-box-shadow:0 0 5px #1F1F1F;
 }
 
 div.pic {
@@ -132,6 +133,7 @@ div.pic img {
   height: 48px;
   width: 48px;
   -webkit-box-shadow: #1F1F1F 0px 0px 2px;
+  -moz-box-shadow:0 0 2px #1F1F1F;
 }
 
 div.url {
