@@ -71,6 +71,17 @@ body {
   max-width: 800px;
   margin-left: auto;
   margin-right: auto;
+
+  /*
+  background-image:url('../images/bg/3.jpg');
+  background-image:url('../images/bg/GypsyGardenbyPixels&IceCream.png');
+  background-image:url('../images/bg/Seamles-Blue-99.jpg');
+  background-image:url('../images/bg/Seamles-Blue-112.jpg');
+  background-image:url('../images/bg/boxy.png');
+  background-image:url('../images/bg/lino.png');
+  */
+  background-image:url('../images/bg/3.jpg');
+  background-repeat:repeat;
 }
 
 div.dock {
