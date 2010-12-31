@@ -3,8 +3,17 @@ task :cron => :environment do
   User.twitter.each do |user|
     setup_twitter_for(user)
 
-    Twitter.home_timeline.each do |tweet| 
+    tweets = if user.last_tweet_id
+      Twitter.home_timeline(:count => 200, :since => user.last_tweet_id)
+    else
+      Twitter.home_timeline
+    end
+
+    next if tweets.nil?
+
+    tweets.each do |tweet| 
       urls = URI.extract(tweet.text, %w(http https))
+      next if urls.nil?
 
       urls.each do |url|
         url = unshorten(url)
@@ -26,6 +35,8 @@ task :cron => :environment do
           )
         rescue Exception => e
           puts e.message
+        ensure
+          user.update_attributes(:last_tweet_id => tweet.id)
         end
       end
     end
