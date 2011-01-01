@@ -130,6 +130,15 @@ h1 div.tilde a:hover {
   border-top: 2px solid #cd3333;
 }
 
+h1 a.permalink {
+  color: #ddd;
+  font-size: smaller;
+}
+
+h1 a.permalink:hover {
+  text-decoration: underline;
+}
+
 h2 {
   font-size: 1em;
   line-height: 1.5em; /* 24px */

@@ -12,6 +12,10 @@ class HomeController < ApplicationController
     @articles = current_user.articles.paginate(:page => params[:page], :per_page => 1)
   end
 
+  def read
+    @article = Article.find(params[:id])
+  end
+
   protected
   def mark_as_read
     @articles.collect{ |article| article.mark_as_read }
