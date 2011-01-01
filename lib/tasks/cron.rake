@@ -18,6 +18,7 @@ task :cron => :environment do
       urls.each do |url|
         url = unshorten(url)
         next if url.include? "http://yfrog.com"
+        next if url.include? "http://foursquare.com"
 
         begin
           doc = Pismo::Document.new(url)
