@@ -1,0 +1,9 @@
+<a name='pagination'> </a>
+  <%= will_paginate( @articles,
+    :renderer => GmailPaginationLinkRenderer,
+    :first_label => "« First",
+    :previous_label => "‹ Previous",
+    :next_label => "Next ›",
+    :last_label => "Last »",
+    :summary_label => "%d of #{@articles.total_pages} pages"
+  ) %>
