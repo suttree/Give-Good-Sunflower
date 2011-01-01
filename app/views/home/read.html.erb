@@ -1,0 +1,28 @@
+<%= render :partial => '/shared/pic' %>
+
+<h1>
+  <div class='tilde'>
+    <a href='/' title='Home - Give Good Sunflower' class='tilde'><img src='/images/sunflower.png' class='sunflower' /></a>
+  </div>
+  <%= @article.title %>
+</h1>
+<div class='url'>
+  &lfloor; <%= link_to truncate(@article.url, :length => 150), @article.url %>
+</div>
+<div class='dock'>
+  <%= render :partial => 'dock_navigation', :locals => {:article => @article, :skip_pagination => true} %>
+</div>
+<div class='article'>
+  <%= @article.html_body.html_safe %>
+</div>
+<div class='cta'>
+  <ul>
+    <li>
+      <iframe border="0" scrolling="no" width="78" height="17" allowtransparency="true" frameborder="0" style="margin-bottom: -3px; z-index: 1338; border: 0px; background-color: transparent; overflow: hidden;" src="http://www.instapaper.com/e2?url=<%= CGI.escape(@article.url) %>&title=<%= CGI.escape(@article.title) %>&description=<%= CGI.escape('/via ' + request.host) %>" ></iframe>
+    </li>
+    <li>
+      <img src='/images/pinboard.gif' class='pinboard' /><a href="http://pinboard.in/add?url=<%= CGI.escape(@article.url) %>&title=<%= CGI.escape(@article.title) %>&description=<%= CGI.escape('/via ' + request.host) %>" target='_blank'>Pinboard</a>
+    </li>
+</div>
+
+<%= render :partial => 'keyboard_navigation' %>

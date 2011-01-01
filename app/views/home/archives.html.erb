@@ -6,6 +6,7 @@
       <a href='/' title='Home - Give Good Sunflower' class='tilde'><img src='/images/sunflower.png' class='sunflower' /></a>
     </div>
     <%= article.title %>
+    <%= link_to '#', read_path(article), :class => 'permalink', :title => 'Permalink' %>
   </h1>
   <div class='url'>
     &lfloor; <%= link_to truncate(article.url, :length => 150), article.url %>
