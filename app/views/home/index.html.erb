@@ -12,8 +12,7 @@
       <% if current_user.articles.unread.count == 0 %>
         You have no unread things, why not check back in an hour?
         <% if current_user.articles.read.count > 0 %>
-          <br/>
-          Or check your <a href='/archive'>archive</a> for something to re-read!
+          Or try your <a href='/archives'>archives</a> for something to re-read!
         <% end %>
       <% else %>
         You have <%= current_user.articles.unread.count %> things <a href='/unread'>unread</a>.

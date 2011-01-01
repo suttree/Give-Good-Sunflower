@@ -73,22 +73,16 @@ body {
   margin-right: auto;
 
   /*
-  background-image:url('../images/bg/3.jpg');
   background-image:url('../images/bg/GypsyGardenbyPixels&IceCream.png');
   background-image:url('../images/bg/Seamles-Blue-92.jpg');
   background-image:url('../images/bg/Seamles-Blue-94.jpg');
   background-image:url('../images/bg/Seamles-Blue-98.jpg');
   background-image:url('../images/bg/Seamles-Blue-99.jpg');
-  background-image:url('../images/bg/Seamles-Blue-103.jpg');
-  background-image:url('../images/bg/Seamles-Blue-104.jpg');
-  background-image:url('../images/bg/Seamles-Blue-106.jpg');
-  background-image:url('../images/bg/Seamles-Blue-108.jpg');
-  background-image:url('../images/bg/Seamles-Blue-111.jpg');
   background-image:url('../images/bg/Seamles-Blue-112.jpg');
   background-image:url('../images/bg/boxy.png');
   background-image:url('../images/bg/lino.png');
   */
-  background-image:url('../images/bg/Seamles-Blue-112.jpg');
+  background-image:url('../images/bg/boxy.png');
   background-repeat:repeat;
 }
 
@@ -176,7 +170,7 @@ div.home, div.article {
 }
 
 div.home {
-  margin-top: 2em;
+  margin-top: 3em;
 }
 
 div.home a {
@@ -184,7 +178,7 @@ div.home a {
 }
 
 div.home ol {
-  margin: 4em 0 1em 0;
+  margin: 2em 0 1em 0;
 }
 
 div.home li {
