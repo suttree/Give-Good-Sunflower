@@ -11,7 +11,7 @@ class Article < ActiveRecord::Base
   scope :read, :conditions => ['read_at IS NOT NULL']
 
   def mark_as_read
-    update_attributes(:read_at => Time.now)
+    update_attribute(:read_at, Time.now)
   end
 
   def archived?
