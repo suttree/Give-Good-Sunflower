@@ -11,13 +11,7 @@
     &lfloor; <%= link_to truncate(article.url, :length => 150), article.url %>
   </div>
   <div class='dock'>
-    <% if @articles.current_page > @articles.total_pages %>
-      <a href='/unread/<%= params[:page].to_i - 1 %>' id='prev'>« Previous</a>
-    <% end %>
-    <a href='http://twitter.com/<%= article.twitter_screen_name %>/statuses/<%= article.tweet_id %>'>/via @<%= article.twitter_screen_name %></a>
-    <% if @articles.current_page < @articles.total_pages %>
-      <a href='/unread/<%= params[:page].to_i + 1 %>' id='next'>Next »</a>
-    <% end %>
+    <%= render :partial => 'dock_navigation', :locals => {:article => article} %>
   </div>
   <div class='article'>
     <%= article.html_body.html_safe %>
