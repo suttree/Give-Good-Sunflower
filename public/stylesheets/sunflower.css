@@ -166,6 +166,7 @@ div.url a {
 }
 
 div.url a:hover {
+  color: #111;
   text-decoration: none;
 }
 
@@ -183,7 +184,7 @@ div.home a {
 }
 
 div.home ol {
-  margin: 1em 0;
+  margin: 4em 0 1em 0;
 }
 
 div.home li {
@@ -245,6 +246,13 @@ div.cta ul li {
   margin: 10px;
   display: inline;
   list-style-type: none; 
+}
+
+span.archived {
+  float: right;
+  padding: 0 0.5em 0 0.5em;
+  font-size: smaller;
+  background-color: #eee;
 }
 
 img.favicon, img.pinboard {
