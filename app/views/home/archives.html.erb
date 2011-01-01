@@ -2,22 +2,26 @@
 
 <% @articles.each do |article| %>
   <h1>
-    <a href='/' title='Home - Give Good Sunflower' class='tilde'><img src='/images/sunflower.png' class='sunflower' /></a>
+    <div class='tilde'>
+      <a href='/' title='Home - Give Good Sunflower' class='tilde'><img src='/images/sunflower.png' class='sunflower' /></a>
+    </div>
     <%= article.title %>
   </h1>
   <div class='url'>
     &lfloor; <%= link_to truncate(article.url, :length => 150), article.url %>
   </div>
   <div class='dock'>
-    <a href='/'>« Back to home</a>
+    <% if @articles.current_page > 1 %>
+      <a href='/archives/<%= params[:page].to_i - 1 %>'>« Previous</a>
+    <% end %>
     <a href='http://twitter.com/<%= article.twitter_screen_name %>/statuses/<%= article.tweet_id %>'>/via @<%= article.twitter_screen_name %></a>
     <% if @articles.current_page < @articles.total_pages %>
-      <a href='/archives/<%= params[:page].to_i + 1 %>'>Next page »</a>
+      <a href='/archives/<%= params[:page].to_i + 1 %>'>Next »</a>
     <% end %>
   </div>
   <div class='article'>
     <span class='archived'>
-      First read, <%= time_ago_in_words(article.read_at) %> ago.
+      First read <%= time_ago_in_words(article.read_at) %> ago.
     </span>
     <%= article.html_body.html_safe %>
   </div>
@@ -32,12 +36,4 @@
   </div>
 <% end %>
 
-<a name='pagination'> </a>
-  <%= will_paginate( @articles,
-    :renderer => GmailPaginationLinkRenderer,
-    :first_label => "« Newest",
-    :previous_label => "‹ Newer",
-    :next_label => "Older ›",
-    :last_label => "Oldest »",
-    :summary_label => "%d of #{@articles.total_pages}"  # CHANGE THIS IN THE LIB FILE, RATHER 
-  ) %>
+<%= render :partial => 'pagination' %>
