@@ -15,7 +15,7 @@
           Or try your <a href='/archives'>archives</a> for something to re-read!
         <% end %>
       <% else %>
-        You have <%= current_user.articles.unread.count %> things <a href='/unread'>unread</a>.
+        You have <%= pluralize(current_user.articles.unread.count, 'thing') %> <a href='/unread'>unread</a>.
       <% end %>
     <% else %>
       O hai?
