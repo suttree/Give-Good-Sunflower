@@ -87,7 +87,7 @@ body {
 }
 
 div.dock {
-  font-size: 0.625em; /* 10px */
+  font-size: 0.8em;
   text-align: right;
   margin: 1.5em auto;
 }
@@ -119,8 +119,15 @@ h1 a:visited {
   color: #133753;
 }
 
-h1 a.tilde:hover {
-  background-color: #efefef;
+h1 div.tilde {
+  float: left;
+  margin: 1px;
+  clear:bottom;
+  display: block;
+}
+
+h1 div.tilde a:hover {
+  border-top: 2px solid #cd3333;
 }
 
 h2 {
@@ -205,7 +212,7 @@ div.article cite {
 div.pagination {
   margin-top: 3em;
   padding-bottom: 2em;
-  font-size: 1em;
+  font-size: 0.9em;
   text-align: center;
 }
 
@@ -231,9 +238,10 @@ div.footer a:hover {
 
 div.cta {
   font-size: 0.8em;
-  margin: 1em;
+  padding: 1em 0 1em 0;
   text-align: right;
   clear: left;
+  border-top: 1px solid #ccc;
 }
 
 div.cta ul li {
@@ -257,8 +265,8 @@ img.favicon, img.pinboard {
 }
 
 img.sunflower {
-  width: 32px;
-  height: 32px
+  width: 36px;
+  height: 36px;
   margin: 0px;
   vertical-align: top;
 }
