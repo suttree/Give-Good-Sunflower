@@ -12,11 +12,11 @@
   </div>
   <div class='dock'>
     <% if @articles.current_page > 1 %>
-      <a href='/archives/<%= params[:page].to_i - 1 %>'>« Previous</a>
+      <a href='/archives/<%= @articles.current_page - 1 %>' id='prev'>« Previous</a>
     <% end %>
     <a href='http://twitter.com/<%= article.twitter_screen_name %>/statuses/<%= article.tweet_id %>'>/via @<%= article.twitter_screen_name %></a>
     <% if @articles.current_page < @articles.total_pages %>
-      <a href='/archives/<%= params[:page].to_i + 1 %>'>Next »</a>
+      <a href='/archives/<%= @articles.current_page + 1 %>' id='next'>Next »</a>
     <% end %>
   </div>
   <div class='article'>
@@ -37,3 +37,5 @@
 <% end %>
 
 <%= render :partial => 'pagination' %>
+
+<%= render :partial => 'keyboard_navigation' %>

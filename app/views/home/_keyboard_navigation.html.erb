@@ -1,0 +1,17 @@
+<script> 
+  $(document).ready(function () {
+    $('body').keyup(function (event) {
+      var url = null;
+
+      if (event.keyCode == 76 || event.keyCode == 68) {
+        url = $('.dock a#next').attr('href')
+      } else if (event.keyCode == 72 || event.keyCode == 65) {
+        url = $('.dock a#prev').attr('href')
+      }
+
+      if (url != null) {
+        window.location.href = url
+      }
+    });
+  });
+</script> 
