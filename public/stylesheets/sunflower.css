@@ -87,9 +87,10 @@ body {
 }
 
 div.dock {
-  font-size: 0.8em;
+  font-size: 0.9em;
   text-align: center;
-  margin: 1.5em auto;
+  margin-top: 1.5em;
+  padding-bottom: 0.5em;
 }
 
 div.dock a {
@@ -160,8 +161,10 @@ div.pic {
 }
 
 div.pic img {
-  height: 48px;
-  width: 48px;
+  height: 54px;
+  width: 54px;
+  display: block;
+  margin-bottom: 0.5em;
   -webkit-box-shadow: #1F1F1F 0px 0px 2px;
   -moz-box-shadow:0 0 2px #1F1F1F;
 }
@@ -228,7 +231,7 @@ div.pagination {
 }
 
 div.pagination a {
-  padding: 0.625em;
+  padding: 2.5em;
 }
 
 div.footer {
