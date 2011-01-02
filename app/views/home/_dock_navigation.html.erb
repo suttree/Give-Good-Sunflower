@@ -1,11 +1,7 @@
-<% if @articles && @articles.current_page > 1 %>
-  <a href='/<%= controller.action_name %>/<%= @articles.current_page - 1 %>' id='prev'>« Previous</a>
-<% end %>
+<a href='/' id='prev'>« Home</a>
 
-<% if @articles && @articles.current_page > 1 && @articles.current_page < @articles.total_pages %>
-  &middot;
-<% end %>
+&middot;
 
-<% if @articles && @articles.current_page < @articles.total_pages %>
-  <a href='/<%= controller.action_name %>/<%= @articles.current_page + 1 %>' id='next'>Next »</a>
+<% if @total_unread > 0 %>
+  <a href='/<%= action %>/next' id='next'>Next »</a>
 <% end %>

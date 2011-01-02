@@ -220,8 +220,8 @@ div.article cite {
 }
 
 div.pagination {
-  margin-top: 3em;
-  padding-bottom: 2em;
+  margin-top: 0.5em;
+  padding-bottom: 0.5em;
   font-size: 0.9em;
   text-align: center;
 }
@@ -260,17 +260,21 @@ div.cta ul li {
   list-style-type: none; 
 }
 
+div.meta {
+  float: right;
+}
+
 span.attribution, span.archived {
   float: right;
-  margin: 0 0 2em 2em;
+  margin: 0.5em 0 0 2em;
   font-size: smaller;
   background-color: #eee;
-  padding: 0 0.5em 0 0.5em;
+  padding: 0 0.5em;
 }
 
 span.archived {
   clear: both;
-  margin: 1em 0;
+  margin: 1em 0 1em 2em;
 }
 
 img.favicon, img.pinboard {

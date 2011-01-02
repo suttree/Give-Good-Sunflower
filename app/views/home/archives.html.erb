@@ -12,15 +12,17 @@
     &lfloor; <%= link_to truncate(article.url, :length => 150), article.url %>
   </div>
   <div class='dock'>
-    <%= render :partial => 'dock_navigation', :locals => {:article => article} %>
+    <%= render :partial => 'dock_full_navigation', :locals => {:article => article, :action => 'archives'} %>
   </div>
   <div class='article'>
-    <span class='attribution'>
-      <a href='http://twitter.com/<%= article.twitter_screen_name %>/statuses/<%= article.tweet_id %>'>via @<%= article.twitter_screen_name %></a>
-    </span>
-    <span class='archived'>
-      First read <%= time_ago_in_words(article.read_at) %> ago.
-    </span>
+    <div class='meta'>
+      <span class='attribution'>
+        <a href='http://twitter.com/<%= article.twitter_screen_name %>/statuses/<%= article.tweet_id %>'>via @<%= article.twitter_screen_name %></a>
+      </span>
+      <span class='archived'>
+        First read <%= time_ago_in_words(article.read_at) %> ago.
+      </span>
+    </div>
     <%= article.html_body.html_safe %>
   </div>
   <div class='cta'>

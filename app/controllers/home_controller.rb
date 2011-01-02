@@ -6,13 +6,13 @@ class HomeController < ApplicationController
     @title_prefix = "#{current_user.login} gave good sunflower"
   end
 
+  def next
+    render :action => :unread
+  end
+
   def archives
     @title_prefix = "#{current_user.login} gave good sunflower / archives"
     @articles = current_user.articles.paginate(:page => params[:page], :per_page => 1)
-  end
-
-  def next
-    render :action => :unread
   end
 
   def read
@@ -23,5 +23,6 @@ class HomeController < ApplicationController
   def find_next_unread_article
     @article = current_user.articles.unread.first
     @article.mark_as_read
+    @total_unread = current_user.articles.unread.count
   end
 end

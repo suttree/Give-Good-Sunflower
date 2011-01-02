@@ -10,7 +10,6 @@
   &lfloor; <%= link_to truncate(@article.url, :length => 150), @article.url %>
 </div>
 <div class='dock'>
-  <%= render :partial => 'dock_navigation', :locals => {:article => @article, :skip_pagination => true} %>
 </div>
 <div class='article'>
   <%= @article.html_body.html_safe %>
@@ -24,5 +23,3 @@
       <img src='/images/pinboard.gif' class='pinboard' /><a href="http://pinboard.in/add?url=<%= CGI.escape(@article.url) %>&title=<%= CGI.escape(@article.title) %>&description=<%= CGI.escape('/via ' + request.host) %>" target='_blank'>Pinboard</a>
     </li>
 </div>
-
-<%= render :partial => 'keyboard_navigation' %>

@@ -11,7 +11,7 @@
   &lfloor; <%= link_to truncate(@article.url, :length => 150), @article.url %>
 </div>
 <div class='dock'>
-  <%= render :partial => 'dock_navigation', :locals => {:article => @article} %>
+  <%= render :partial => 'dock_navigation', :locals => {:article => @article, :action => 'unread'} %>
 </div>
 <div class='article'>
   <span class='attribution'>
@@ -29,6 +29,8 @@
     </li>
 </div>
 
-<%#= render :partial => 'pagination' %>
+<div class='pagination'>
+  <%= render :partial => 'dock_navigation', :locals => {:article => @article, :action => 'unread'} %>
+</div>
 
 <%= render :partial => 'keyboard_navigation' %>
