@@ -1,0 +1,9 @@
+<a href='/' id='prev'>« Home</a>
+
+&middot;
+
+<% if @total_unread > 0 %>
+  <a href='/unread/next' id='next'>Next »</a>
+<% else %>
+  <a href='/archives'>Archives »</a>
+<% end %>

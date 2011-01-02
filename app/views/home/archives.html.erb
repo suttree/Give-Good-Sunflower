@@ -12,7 +12,7 @@
     &lfloor; <%= link_to truncate(article.url, :length => 150), article.url %>
   </div>
   <div class='dock'>
-    <%= render :partial => 'dock_full_navigation', :locals => {:article => article, :action => 'archives'} %>
+    <%= render :partial => 'full_navigation' %>
   </div>
   <div class='article'>
     <div class='meta'>

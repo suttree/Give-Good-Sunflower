@@ -182,6 +182,7 @@ div.url a:hover {
 }
 
 div.home, div.article {
+  min-height: 5em;
   padding: 1.5em 0;
   line-height: 1.8em;
 }
