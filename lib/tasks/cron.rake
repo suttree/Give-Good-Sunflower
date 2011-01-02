@@ -20,6 +20,7 @@ task :cron => :environment do
         next if url.include? "http://fb.me"
         next if url.include? "http://yfrog.com"
         next if url.include? "http://twitpic.com"
+        next if url.include? "http://instagr.am"
         next if url.include? "http://foursquare.com"
 
         begin

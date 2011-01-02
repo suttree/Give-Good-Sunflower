@@ -88,13 +88,14 @@ body {
 
 div.dock {
   font-size: 0.8em;
-  text-align: right;
+  text-align: center;
   margin: 1.5em auto;
 }
 
 div.dock a {
   color: blue;
-  margin: 1em 0 1em 1em;
+  padding: 2.5em;
+  text-align: left;
 }
 
 div.dock a:hover {
@@ -259,11 +260,16 @@ div.cta ul li {
   list-style-type: none; 
 }
 
-span.archived {
+span.attribution, span.archived {
   float: right;
-  padding: 0 0.5em 0 0.5em;
   font-size: smaller;
   background-color: #eee;
+  padding: 0 0.5em 0 0.5em;
+}
+
+span.archived {
+  clear: both;
+  margin: 1em 0;
 }
 
 img.favicon, img.pinboard {
