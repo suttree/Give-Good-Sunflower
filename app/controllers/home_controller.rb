@@ -1,10 +1,9 @@
 class HomeController < ApplicationController
   before_filter :require_user, :only => :unread
+  before_filter :find_next_unread_article, :only => [:unread, :next]
 
   def unread
     @title_prefix = "#{current_user.login} gave good sunflower"
-    @articles = current_user.articles.unread.paginate(:page => params[:page], :per_page => 1)
-    @articles.collect{ |article| article.mark_as_read }
   end
 
   def archives
@@ -12,12 +11,17 @@ class HomeController < ApplicationController
     @articles = current_user.articles.paginate(:page => params[:page], :per_page => 1)
   end
 
+  def next
+    render :action => :unread
+  end
+
   def read
     @article = Article.find(params[:id])
   end
 
   protected
-  def mark_as_read
-    @articles.collect{ |article| article.mark_as_read }
+  def find_next_unread_article
+    @article = current_user.articles.unread.first
+    @article.mark_as_read
   end
 end
