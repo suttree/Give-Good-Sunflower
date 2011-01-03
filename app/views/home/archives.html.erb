@@ -2,9 +2,6 @@
 
 <% @articles.each do |article| %>
   <h1>
-    <div class='tilde'>
-      <a href='/' title='Home - Give Good Sunflower' class='tilde'><img src='/images/sunflower.png' class='sunflower' /></a>
-    </div>
     <%= article.title %>
     <%= link_to '#', read_path(article), :class => 'permalink', :title => 'Permalink' %>
   </h1>
@@ -16,6 +13,9 @@
   </div>
   <div class='article'>
     <div class='meta'>
+      <span class='tilde'>
+        <a href='/'>«&nbsp;Home</a>
+      </span>
       <span class='attribution'>
         <a href='http://twitter.com/<%= article.twitter_screen_name %>/statuses/<%= article.tweet_id %>'>via @<%= article.twitter_screen_name %></a>
       </span>

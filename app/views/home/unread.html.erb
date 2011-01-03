@@ -1,9 +1,6 @@
 <%= render :partial => '/shared/pic' %>
 
 <h1>
-  <div class='tilde'>
-    <a href='/' title='Home - Give Good Sunflower' class='tilde'><img src='/images/sunflower.png' class='sunflower' /></a>
-  </div>
   <%= @article.title %>
   <%= link_to '#', read_path(@article), :class => 'permalink', :title => 'Permalink' %>
 </h1>

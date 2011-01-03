@@ -79,7 +79,7 @@ body {
   background-image:url('../images/bg/boxy.png');
   */
 
-  background-image:url('../images/bg/Seamles-Blue-99.jpg');
+  background-image:url('../images/bg/boxy.png');
   background-repeat:repeat;
 }
 
@@ -94,7 +94,7 @@ div.dock a {
   color: blue;
   padding: 0.5em;
   margin: 2em;
-  text-align: left;
+  text-align: center;
 }
 
 div.dock a:hover {
@@ -167,7 +167,6 @@ div.pic img {
 
 div.url {
   color: #aaa;
-  margin-left: 40px;
   font-size: 0.625em; /* 10px */
 }
 
@@ -230,7 +229,6 @@ div.pagination a {
   color: blue;
   padding: 0.5em;
   margin: 2em;
-  text-align: left;
 }
 
 div.footer {
@@ -272,7 +270,7 @@ div.meta {
   float: right;
 }
 
-span.attribution, span.archived {
+span.tilde, span.attribution, span.archived {
   float: right;
   margin: 0.5em 0 0 2em;
   font-size: smaller;
@@ -280,9 +278,13 @@ span.attribution, span.archived {
   padding: 0 0.5em;
 }
 
-span.archived {
+span.attribution, span.archived {
   clear: both;
-  margin: 1em 0 1em 2em;
+  margin: 1em 0 0 2em;
+}
+
+span.archived {
+  margin-bottom: 0.5em;
 }
 
 img.favicon, img.pinboard {
