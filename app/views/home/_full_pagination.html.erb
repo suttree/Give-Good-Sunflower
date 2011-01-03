@@ -1,13 +1,13 @@
 <% if @articles && @articles.current_page > 1 %>
-  <a href='/archives/<%= @articles.current_page - 1 %>' id='prev'>« Previous</a>
+  <a href='/archives/<%= @articles.current_page - 1 %>' id='prev'>«&nbsp;Previous</a>
 <% else %>
-  <a href='/'>« Home</a>
+  <a href='/'>«&nbsp;Home</a>
 <% end %>
 
 &middot;
 
 <% if @articles && @articles.current_page < @articles.total_pages %>
-  <a href='/archives/<%= @articles.current_page + 1 %>' id='next'>Next »</a>
+  <a href='/archives/<%= @articles.current_page + 1 %>' id='next'>Next&nbsp;»</a>
 <% else %>
-  <a href='/archives'>Archives »</a>
+  <a href='/archives'>Archives&nbsp;»</a>
 <% end %>

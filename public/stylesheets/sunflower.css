@@ -92,7 +92,8 @@ div.dock {
 
 div.dock a {
   color: blue;
-  padding: 2.5em;
+  padding: 0.5em;
+  margin: 2em;
   text-align: left;
 }
 
@@ -226,7 +227,10 @@ div.pagination {
 }
 
 div.pagination a {
-  padding: 2.5em;
+  color: blue;
+  padding: 0.5em;
+  margin: 2em;
+  text-align: left;
 }
 
 div.footer {

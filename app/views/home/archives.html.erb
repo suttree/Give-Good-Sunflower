@@ -9,7 +9,7 @@
     <%= link_to '#', read_path(article), :class => 'permalink', :title => 'Permalink' %>
   </h1>
   <div class='url'>
-    &lfloor; <%= link_to truncate(article.url, :length => 150), article.url %>
+    &lfloor;&nbsp;<%= link_to truncate(article.url, :length => 150), article.url %>
   </div>
   <div class='dock'>
     <%= render :partial => 'full_pagination' %>
