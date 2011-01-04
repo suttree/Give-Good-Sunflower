@@ -4,9 +4,9 @@ task :cron => :environment do
     setup_twitter_for(user)
 
     tweets = if user.last_tweet_id
-      Twitter.home_timeline(:count => 200, :since => user.last_tweet_id)
+      Twitter.home_timeline(:count => 200, :since => user.last_tweet_id, :include_rts => 0)
     else
-      Twitter.home_timeline
+      Twitter.home_timeline(:include_rts => 0)
     end
 
     next if tweets.nil?
@@ -21,6 +21,7 @@ task :cron => :environment do
         next if url.include? "http://yfrog.com"
         next if url.include? "http://twitpic.com"
         next if url.include? "http://instagr.am"
+        next if url.include? "http://www.tweekly.fm"
         next if url.include? "http://foursquare.com"
 
         begin
