@@ -270,7 +270,7 @@ div.meta {
   float: right;
 }
 
-span.tilde, span.attribution, span.archived {
+span.tilde, span.attribution, span.archived, span.remaining {
   float: right;
   margin: 0.5em 0 0 2em;
   font-size: smaller;
@@ -278,7 +278,7 @@ span.tilde, span.attribution, span.archived {
   padding: 0 0.5em;
 }
 
-span.attribution, span.archived {
+span.attribution, span.archived, span.remaining {
   clear: both;
   margin: 1em 0 0 2em;
 }
