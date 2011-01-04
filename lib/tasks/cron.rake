@@ -1,9 +1,5 @@
-require 'iconv'
-
 desc "Import tweets and store the resulting linked content"
 task :cron => :environment do
-  i = Iconv.new('UTF-8','LATIN1')
-
   User.twitter.each do |user|
     setup_twitter_for(user)
 
@@ -31,20 +27,17 @@ task :cron => :environment do
         begin
           doc = Pismo::Document.new(url)
 
-          body = i.iconv(doc.body)
-          html_body = i.iconv(doc.html_body)
-
           article = user.articles.create(
             :tweet_id => tweet.id,
             :twitter_screen_name => tweet.user.screen_name,
             :url => url,
             :favicon => doc.favicon,
-            :title => doc.title,
+            :title => (doc.html_title.nil? ? doc.title : doc.html_title),
             :author => doc.author,
             :lede => doc.lede,
             :keywords => doc.keywords,
-            :html_body => html_body,
-            :body => body
+            :html_body => doc.html_body,
+            :body => doc.body
           )
         rescue Exception => e
           puts e.message
