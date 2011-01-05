@@ -36,8 +36,8 @@ task :cron => :environment do
             :author => doc.author,
             :lede => doc.lede,
             :keywords => doc.keywords,
-            :html_body => doc.html_body.gsub(/0x85/, ''),
-            :body => doc.body.gsub(/0x85/, '')
+            :html_body => clean_up(doc.html_body),
+            :body => clean_up(doc.body)
           )
         rescue Exception => e
           puts e.message
@@ -68,5 +68,12 @@ def setup_twitter_for(user)
     config.consumer_secret = Omnisocial.service_configs[:twitter].app_secret
     config.oauth_token = user.login_account.token
     config.oauth_token_secret = user.login_account.secret
+  end
+end
+
+def clean_up(text)
+  entities = ['0x85', '0xf670696e']
+  entities.each do |entity|
+    text.gsub!(/entity/, '')
   end
 end
