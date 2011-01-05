@@ -72,7 +72,7 @@ def setup_twitter_for(user)
 end
 
 def clean_up(text)
-  entities = ['0x85', '0xf670696e']
+  entities = ['0x85', '0xf670696e', '0xb4', '0xe97365']
   entities.each do |entity|
     text.gsub!(/entity/, '')
   end
