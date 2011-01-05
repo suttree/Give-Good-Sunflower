@@ -36,8 +36,8 @@ task :cron => :environment do
             :author => doc.author,
             :lede => doc.lede,
             :keywords => doc.keywords,
-            :html_body => doc.html_body,
-            :body => doc.body
+            :html_body => doc.html_body.gsub(/0x85/, ''),
+            :body => doc.body.gsub(/0x85/, '')
           )
         rescue Exception => e
           puts e.message
