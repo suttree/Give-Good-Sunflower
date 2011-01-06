@@ -1,6 +1,8 @@
 desc "Import tweets and store the resulting linked content"
 task :cron => :environment do
   User.twitter.each do |user|
+    puts "Running cron for #{user.login} at #{Time.now}"
+
     setup_twitter_for(user)
 
     tweets = if user.last_tweet_id
@@ -17,6 +19,8 @@ task :cron => :environment do
 
       urls.each do |url|
         url = unshorten(url)
+        puts url
+
         next if url.include? "http://fb.me"
         next if url.include? "http://yfrog.com"
         next if url.include? "http://twitpic.com"
@@ -36,12 +40,13 @@ task :cron => :environment do
             :title => (doc.html_title.nil? ? doc.title : doc.html_title),
             :author => doc.author,
             :lede => doc.lede,
-            :keywords => doc.keywords,
+            :keywords => '',
             :html_body => clean_up(doc.html_body),
             :body => clean_up(doc.body)
           )
-        rescue Exception => e
-          puts e.message
+        rescue
+          puts "Catching exception for #{user.login} at #{Time.now}"
+          puts $!.inspect, $@
         ensure
           user.update_attributes(:last_tweet_id => tweet.id)
         end
@@ -77,5 +82,6 @@ def clean_up(text)
   entities.each do |entity|
     text.gsub!(/entity/, '')
   end
+  text.gsub!(/[[:print:]]/, '')
   text
 end
