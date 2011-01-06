@@ -82,6 +82,6 @@ def clean_up(text)
   entities.each do |entity|
     text.gsub!(/entity/, '')
   end
-  text.gsub!(/[[:print:]]/, '')
+  #text.gsub!(/[[:print:]]/, '')
   text
 end
