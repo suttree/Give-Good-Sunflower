@@ -6,7 +6,7 @@ task :cron => :environment do
     setup_twitter_for(user)
 
     tweets = if user.last_tweet_id
-      Twitter.home_timeline(:count => 100, :since => user.last_tweet_id, :include_rts => 0)
+      Twitter.home_timeline(:count => 250, :since => user.last_tweet_id, :include_rts => 0)
     else
       Twitter.home_timeline(:include_rts => 0)
     end
