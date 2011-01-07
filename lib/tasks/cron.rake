@@ -80,7 +80,7 @@ end
 def clean_up(text)
   entities = ['0x85', '0xf670696e', '0xb4', '0xe97365', '0xe96e6f']
   entities.each do |entity|
-    text.gsub!(/entity/, '')
+    text.gsub!(/entity/, ' ')
   end
   text.scan(/[[:print:]]/).join
 end
