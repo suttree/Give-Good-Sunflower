@@ -12,7 +12,7 @@ class HomeController < ApplicationController
 
   def archives
     @title_prefix = "#{current_user.login} gave good sunflower / archives"
-    @articles = current_user.articles.paginate(:page => params[:page], :per_page => 1)
+    @articles = current_user.articles.read.paginate(:page => params[:page], :per_page => 1)
   end
 
   def read
