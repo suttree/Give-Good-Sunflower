@@ -1,43 +1,45 @@
 <%= render :partial => '/shared/pic' %>
 
-<% @articles.each do |article| %>
-  <h1 class='<%= article.read? ? 'read' : 'unread' %>'>
-    <%= article.title %>
-    <%= link_to '#', read_path(article), :class => 'permalink', :title => 'Permalink' %>
-  </h1>
-  <div class='url'>
-    &lfloor;&nbsp;<%= link_to truncate(article.url, :length => 125), article.url %>
-  </div>
-  <div class='dock'>
-    <%= render :partial => 'ajax_simple_pagination' %>
-  </div>
-  <div class='article'>
-    <div class='meta'>
-      <span class='tilde'>
-        <a href='/'>«&nbsp;Home</a>
-      </span>
-      <span class='attribution'>
-        <a href='http://twitter.com/<%= article.twitter_screen_name %>/statuses/<%= article.tweet_id %>' title="<%= article.tweet_text %>">via @<%= article.twitter_screen_name %></a>
-      </span>
-      <span class='archived'>
-        <% if article.read? %>
-          First read <%= time_ago_in_words(article.read_at) %> ago.
-        <% end %>
-      </span>
+<div class='page'>
+  <% @articles.each do |article| %>
+    <h1 class='<%= article.read? ? 'read' : 'unread' %>'>
+      <%= article.title %>
+      <%= link_to '#', read_path(article), :class => 'permalink', :title => 'Permalink' %>
+    </h1>
+    <div class='url'>
+      &lfloor;&nbsp;<%= link_to truncate(article.url, :length => 125), article.url %>
     </div>
-    <%= article.html_body.html_safe %>
-  </div>
-  <div class='cta'>
-    <ul>
-      <li>
-        <iframe border="0" scrolling="no" width="78" height="17" allowtransparency="true" frameborder="0" style="margin-bottom: -3px; z-index: 1338; border: 0px; background-color: transparent; overflow: hidden;" src="http://www.instapaper.com/e2?url=<%= CGI.escape(article.url) %>&title=<%= CGI.escape(article.title) %>&description=<%= CGI.escape('/via ' + request.host) %>" ></iframe>
-      </li>
-      <li>
-        <img src='/images/pinboard.gif' class='pinboard' /><a href="http://pinboard.in/add?url=<%= CGI.escape(article.url) %>&title=<%= CGI.escape(article.title) %>&description=<%= CGI.escape('/via ' + request.host) %>" target='_blank'>Pinboard</a>
-      </li>
-  </div>
-<% end %>
+    <div class='dock'>
+      <%= render :partial => 'ajax_simple_pagination' %>
+    </div>
+    <div class='article'>
+      <div class='meta'>
+        <span class='tilde'>
+          <a href='/'>«&nbsp;Home</a>
+        </span>
+        <span class='attribution'>
+          <a href='http://twitter.com/<%= article.twitter_screen_name %>/statuses/<%= article.tweet_id %>' title="<%= article.tweet_text %>">via @<%= article.twitter_screen_name %></a>
+        </span>
+        <span class='archived'>
+          <% if article.read? %>
+            First read <%= time_ago_in_words(article.read_at) %> ago.
+          <% end %>
+        </span>
+      </div>
+      <%= article.html_body.html_safe %>
+    </div>
+    <div class='cta'>
+      <ul>
+        <li>
+          <iframe border="0" scrolling="no" width="78" height="17" allowtransparency="true" frameborder="0" style="margin-bottom: -3px; z-index: 1338; border: 0px; background-color: transparent; overflow: hidden;" src="http://www.instapaper.com/e2?url=<%= CGI.escape(article.url) %>&title=<%= CGI.escape(article.title) %>&description=<%= CGI.escape('/via ' + request.host) %>" ></iframe>
+        </li>
+        <li>
+          <img src='/images/pinboard.gif' class='pinboard' /><a href="http://pinboard.in/add?url=<%= CGI.escape(article.url) %>&title=<%= CGI.escape(article.title) %>&description=<%= CGI.escape('/via ' + request.host) %>" target='_blank'>Pinboard</a>
+        </li>
+    </div>
+  <% end %>
 
-<%#= render :partial => 'ajax_pagination' %>
+  <%#= render :partial => 'ajax_pagination' %>
 
-<%#= render :partial => 'ajax_keyboard_navigation' %>
+  <%#= render :partial => 'ajax_keyboard_navigation' %>
+</div>

@@ -6,6 +6,7 @@ class Article < ActiveRecord::Base
   validates_uniqueness_of :tweet_id
   validates_presence_of :body, :html_body, :title, :url
 
+  scope :list, :order => 'created_at DESC'
   scope :unread, :conditions => {:read_at => nil}, :order => 'created_at DESC'
   scope :read, :conditions => ['read_at IS NOT NULL'], :order => 'updated_at DESC'
 

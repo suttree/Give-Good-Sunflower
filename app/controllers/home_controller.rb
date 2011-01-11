@@ -6,7 +6,7 @@ class HomeController < ApplicationController
 
   def r
     @title_prefix = "#{current_user.login} gave good sunflower"
-    @articles = current_user.articles.paginate(:page => params[:page], :per_page => 1)
+    @articles = current_user.articles.list.paginate(:page => params[:page], :per_page => 1)
     @total_unread = current_user.articles.unread.count
 
     respond_to do |format|

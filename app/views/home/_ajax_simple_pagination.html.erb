@@ -1,5 +1,5 @@
 <% if @articles && @articles.current_page > 1 %>
-  <%= link_to '«&nbsp;Previous'.html_safe, stack_path(:page => (@articles.current_page - 1)), :id => 'prev', :remote => true, :update => 'sunflower' %>
+  <%= link_to '«&nbsp;Previous'.html_safe, stack_path(:page => (@articles.current_page - 1)), :id => 'prev', :remote => true, :update => 'page' %>
 <% else %>
   <a href='/'>«&nbsp;Home</a>
 <% end %>
@@ -7,5 +7,5 @@
 &middot;
 
 <% if @articles && @articles.current_page < @articles.total_pages %>
-  <%= link_to 'Next&nbsp;»'.html_safe, stack_path(:page => (@articles.current_page + 1)), :id => 'next', :remote => true, :update => 'sunflower' %>
+  <%= link_to 'Next&nbsp;»'.html_safe, stack_path(:page => (@articles.current_page + 1)), :id => 'next', :remote => true, :update => 'page' %>
 <% end %>
