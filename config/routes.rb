@@ -10,4 +10,6 @@ GiveGoodSunflower::Application.routes.draw do
   match "/read/:id", :to => "home#read", :as => 'read'
 
   match "/cron", :to => "home#cron"
+
+  match "/r(/:page)", :to => "home#r", :as => 'stack'
 end

@@ -35,6 +35,7 @@ task :cron => :environment do
           article = user.articles.create(
             :tweet_id => tweet.id,
             :twitter_screen_name => tweet.user.screen_name,
+            :tweet_text => tweet.text,
             :url => url,
             :favicon => doc.favicon,
             :title => (doc.html_title.nil? ? doc.title : doc.html_title),

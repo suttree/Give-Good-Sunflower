@@ -1,6 +1,22 @@
 class HomeController < ApplicationController
-  before_filter :require_user, :only => :unread
+  before_filter :require_user, :only => [:unread, :read]
   before_filter :find_next_unread_article, :only => [:unread, :next]
+
+  after_filter :mark_article_as_read, :only => :r
+
+  def r
+    @title_prefix = "#{current_user.login} gave good sunflower"
+    @articles = current_user.articles.paginate(:page => params[:page], :per_page => 1)
+    @total_unread = current_user.articles.unread.count
+
+    respond_to do |format|
+      format.html do
+        if request.xhr?
+          render :layout => false
+        end
+      end
+    end
+  end
 
   def unread
     @title_prefix = "#{current_user.login} gave good sunflower"
@@ -24,5 +40,9 @@ class HomeController < ApplicationController
     @article = current_user.articles.unread.first
     @article.mark_as_read
     @total_unread = current_user.articles.unread.count
+  end
+
+  def mark_article_as_read
+    @articles.first.mark_as_read unless @articles.first.read?
   end
 end

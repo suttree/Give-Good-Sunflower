@@ -16,4 +16,12 @@ class Article < ActiveRecord::Base
   def archived?
     !read_at.nil?
   end
+
+  def read?
+    archived?
+  end
+
+  def unread?
+    !read?
+  end
 end

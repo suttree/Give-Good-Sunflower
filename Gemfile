@@ -9,3 +9,4 @@ gem 'rack-bug', :require => 'rack/bug', :git => 'git://github.com/brynary/rack-b
 gem 'pismo', :git => 'git://github.com/peterc/pismo.git'
 gem 'url_shortener'
 gem 'will_paginate', "~> 3.0.pre2"
+gem 'jquery-rails', '>= 0.2.6'
