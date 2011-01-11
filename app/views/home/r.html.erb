@@ -3,7 +3,7 @@
 <div class='page'>
   <% @articles.each do |article| %>
     <h1 class='<%= article.read? ? 'read' : 'unread' %>'>
-      <%= truncate(article.title, :length => 80, :separator => ' ') %>
+      <%= truncate(article.title, :length => 100, :separator => ' ') %>
       <%= link_to '#', read_path(article), :class => 'permalink', :title => 'Permalink' %>
     </h1>
     <div class='url'>
