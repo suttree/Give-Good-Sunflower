@@ -32,13 +32,19 @@ task :cron => :environment do
         begin
           doc = Pismo::Document.new(url)
 
+          title = if url =~ /theatlantic.com/
+            doc.html_title
+          else
+            (doc.title.nil? ? doc.html_title : doc.title)
+          end
+
           article = user.articles.create(
             :tweet_id => tweet.id,
             :twitter_screen_name => tweet.user.screen_name,
             :tweet_text => tweet.text,
             :url => url,
             :favicon => doc.favicon,
-            :title => (doc.title.nil? ? doc.html_title : doc.title),
+            :title => title,
             :author => doc.author,
             :lede => doc.lede,
             :keywords => '',
