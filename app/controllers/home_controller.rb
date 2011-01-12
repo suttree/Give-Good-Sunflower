@@ -1,5 +1,5 @@
 class HomeController < ApplicationController
-  before_filter :require_user, :only => [:unread, :read]
+  before_filter :require_user, :only => [:unread, :read, :r]
   before_filter :find_next_unread_article, :only => [:unread, :next]
 
   after_filter :mark_article_as_read, :only => :r
