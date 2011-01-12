@@ -1,6 +1,6 @@
-<%= render :partial => '/shared/pic' %>
-
 <div class='page'>
+  <%= render :partial => '/shared/pic' %>
+
   <% @articles.each do |article| %>
     <h1 class='<%= article.read? ? 'read' : 'unread' %>'>
       <%= truncate(article.title, :length => 100, :separator => ' ') %>
