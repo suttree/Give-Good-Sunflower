@@ -8,9 +8,9 @@
 ) %>
 
 <% if local_assigns[:ajax] %>
-  <% content_for :javascript do %>
+  <script>
     $(document).ready(function () {
       $('.pagination a').attr('data-remote', 'true');
     });
-  <% end %>
+  </script>
 <% end %>
