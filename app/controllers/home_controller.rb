@@ -43,6 +43,6 @@ class HomeController < ApplicationController
   end
 
   def mark_article_as_read
-    @articles.first.mark_as_read unless @articles.first.read?
+    @articles.first.mark_as_read unless @articles.empty? || @articles.first.read?
   end
 end
