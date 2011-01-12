@@ -1,0 +1,11 @@
+<% content_for :javascript do %>
+  $(document).ready(function () {
+    $('body').keydown(function (event) {
+      if (event.keyCode == 76 || event.keyCode == 68) {
+        $('.dock a#next').click();
+      } else if (event.keyCode == 72 || event.keyCode == 65) {
+        $('.dock a#prev').click();
+      }
+    });
+  });
+<% end %>

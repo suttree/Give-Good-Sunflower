@@ -1,4 +1,4 @@
-<script> 
+<% content_for :javascript do %>
   $(document).ready(function () {
     $('body').keyup(function (event) {
       var url = null;
@@ -14,4 +14,4 @@
       }
     });
   });
-</script> 
+<% end %>

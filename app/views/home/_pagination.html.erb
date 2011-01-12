@@ -6,3 +6,11 @@
   :last_label => "Last »",
   :summary_label => "%d of #{@articles.total_pages} pages"
 ) %>
+
+<% if local_assigns[:ajax] %>
+  <% content_for :javascript do %>
+    $(document).ready(function () {
+      $('.pagination a').attr('data-remote', 'true');
+    });
+  <% end %>
+<% end %>

@@ -39,7 +39,7 @@
     </div>
   <% end %>
 
-  <%#= render :partial => 'ajax_pagination' %>
+  <%= render :partial => 'pagination', :locals => {:ajax => true} %>
 
-  <%#= render :partial => 'ajax_keyboard_navigation' %>
+  <%= render :partial => 'ajax_keyboard_navigation' %>
 </div>
