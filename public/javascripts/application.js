@@ -4,10 +4,11 @@ jQuery(function($) {
   var fade = function() { $(".loading").toggle() };
 
   $(".sunflower")
-    .bind("ajax:loading",  fade)
-    .bind("ajax:complete", fade)
+    .bind("ajax:beforeSend", function(data, status, xhr) {
+      $(".sunflower").css({ opacity: 0.5 });
+    })
     .bind("ajax:success", function(data, status, xhr) {
-      $(".sunflower").css({ opacity: 0.6 }).fadeTo("normal", 1);
       $(".sunflower").html(status);
+      $(".sunflower").fadeTo('fast', 1);
     });
 });
