@@ -3,8 +3,7 @@
 
   <% @articles.each do |article| %>
     <h1 class='<%= article.read? ? 'read' : 'unread' %>'>
-      <%= truncate(article.title, :length => 100, :separator => ' ') %>
-      <%= link_to '#', read_path(article), :class => 'permalink', :title => 'Permalink' %>
+      <%= truncate(article.title, :length => 100, :separator => ' ') %>&nbsp;<%= link_to '#', read_path(article), :class => 'permalink', :title => 'Permalink' %>
     </h1>
     <div class='url'>
       &lfloor;&nbsp;<%= link_to truncate(article.url, :length => 110, :separator => ' '), article.url %>
