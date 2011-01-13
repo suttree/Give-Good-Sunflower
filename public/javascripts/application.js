@@ -8,6 +8,7 @@ jQuery(function($) {
       $(".page").css({ opacity: 0.5 });
     })
     .bind("ajax:success", function(data, status, xhr) {
+      $('body').animate({scrollTop:0}, 'fast');
       $(".page").html(status);
       $(".page").fadeTo('fast', 1);
     });
