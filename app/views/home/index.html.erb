@@ -9,14 +9,14 @@
     <% if current_user %>
       O hai, <%= current_user.login %>.
       <% if current_user.articles.unread.count == 0 %>
-        You have no unread things, why not check back in an hour?
+        You have no unread things, why not check back in an hour or so?
         <% if current_user.articles.read.count > 0 %>
           Or try your <a href='/archives'>archives</a> for something to re-read!
         <% end %>
       <% elsif current_user.articles.unread.count > 0 && current_user.articles.read.count > 0 %>
-        You have <%= pluralize(current_user.articles.unread.count, 'thing') %> <a href='/unread'>unread</a>, and <%= pluralize(current_user.articles.read.count, 'thing') %> <a href='/archives'>archived</a>.
+        You have <%= pluralize(current_user.articles.unread.count, 'thing') %> <a href='/r'>to read</a>, and <%= pluralize(current_user.articles.read.count, 'thing') %> <a href='/archives'>archived</a>.
       <% else %>
-        You have <%= pluralize(current_user.articles.unread.count, 'thing') %> <a href='/unread'>unread</a>.
+        You have <%= pluralize(current_user.articles.unread.count, 'thing') %> <a href='/r'>to read</a>.
       <% end %>
     <% else %>
       O hai?
