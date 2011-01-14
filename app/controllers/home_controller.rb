@@ -20,6 +20,14 @@ class HomeController < ApplicationController
 
   def unread
     @title_prefix = "#{current_user.login} gave good sunflower"
+
+    respond_to do |format|
+      format.html do
+        if request.xhr?
+          render :layout => false
+        end
+      end
+    end
   end
 
   def next
