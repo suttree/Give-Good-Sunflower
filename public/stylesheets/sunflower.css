@@ -101,6 +101,7 @@ div.dock a:hover {
 
 h1 {
   font-size: 1.5em; /* 24px */
+  font-weight: bold;
   line-height: 1.333em; /* 36px */
   font-family: "Lucida Sans", "Lucida Grande", "Lucida Sans Unicode", sans-serif;
 }
