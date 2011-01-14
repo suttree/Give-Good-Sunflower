@@ -37,9 +37,9 @@ class HomeController < ApplicationController
 
   protected
   def find_next_unread_article
-    @article = current_user.articles.unread.first
-    redirect_to '/' if @article.nil? and return
+    redirect_to '/' and return if current_user.articles.unread.count == 0
 
+    @article = current_user.articles.unread.first
     @article.mark_as_read
     @total_unread = current_user.articles.unread.count
   end
