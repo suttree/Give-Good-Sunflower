@@ -31,7 +31,15 @@ class HomeController < ApplicationController
   end
 
   def next
-    render :action => :unread, :layout => request.xhr?
+    respond_to do |format|
+      format.html do
+        if request.xhr?
+          render :action => :unread, :layout => false
+        else
+          render :action => :unread
+        end
+      end
+    end
   end
 
   def archives
