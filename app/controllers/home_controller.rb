@@ -31,7 +31,7 @@ class HomeController < ApplicationController
   end
 
   def next
-    render :action => :unread
+    render :action => :unread, :layout => request.xhr?
   end
 
   def archives
