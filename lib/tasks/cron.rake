@@ -1,6 +1,6 @@
 desc "Import tweets and store the resulting linked content"
 task :cron => :environment do
-  User.twitter.each do |user|
+  User.twitter.order('random()').each do |user|
     puts "Running cron for #{user.login} at #{Time.now}"
 
     setup_twitter_for(user)
