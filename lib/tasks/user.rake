@@ -1,6 +1,6 @@
 desc "Import tweets and store the resulting linked content for a specific user"
 task :user => :environment do
-  user = User.includes(:login_accounts).where("login_accounts.login = '#{ARGV[0]}'").first
+  user = User.includes(:login_accounts).where("login_accounts.login = '#{ARGV[1]}'").first
   puts "Running cron for #{user.login} at #{Time.now}"
 
   setup_twitter_for(user)
