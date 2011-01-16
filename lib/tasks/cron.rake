@@ -51,9 +51,9 @@ task :cron => :environment do
             :html_body => clean_up(doc.html_body),
             :body => clean_up(doc.body)
           )
-        rescue
+        rescue Exception => e
           puts "Catching exception for #{user.login} at #{Time.now}"
-          puts $!.inspect, $@
+          puts e.message
         ensure
           user.update_attributes(:last_tweet_id => tweet.id)
         end
