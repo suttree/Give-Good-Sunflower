@@ -60,6 +60,7 @@ task :cron => :environment do
       end
     end
   end
+  puts "Done"
 end
 
 private
