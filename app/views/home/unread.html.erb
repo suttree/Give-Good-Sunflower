@@ -3,8 +3,6 @@
 
   <h1 class='unread'>
     <%= truncate(@article.title, :length => 100, :separator => ' ') %>&nbsp;<%= link_to '#', read_path(@article), :class => 'permalink', :title => 'Permalink' %>
-    <%= @article.title %>
-    <%= link_to '#', read_path(@article), :class => 'permalink', :title => 'Permalink' %>
   </h1>
   <div class='url'>
     &lfloor;&nbsp;<%= link_to truncate(@article.url, :length => 150), @article.url %>
