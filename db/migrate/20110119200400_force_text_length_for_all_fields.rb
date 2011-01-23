@@ -7,6 +7,9 @@ class ForceTextLengthForAllFields < ActiveRecord::Migration
   end
 
   def self.down
-    # No need for a downward migration
+   change_column(:articles, :title, :string)
+   change_column(:articles, :lede, :string)
+   change_column(:articles, :body, :string)
+   change_column(:articles, :html_body, :string)
   end
 end
