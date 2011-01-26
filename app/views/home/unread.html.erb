@@ -12,7 +12,7 @@
   </div>
   <div class='article'>
     <span class='attribution'>
-      <a href='http://twitter.com/<%= @article.twitter_screen_name %>/statuses/<%= @article.tweet_id %>'>via @<%= @article.twitter_screen_name %></a>
+      <a href='http://twitter.com/<%= @article.twitter_screen_name %>/statuses/<%= @article.tweet_id %>'>via <b>@<%= @article.twitter_screen_name %></b></a>
     </span>
     <span class='remaining'>
       <b><%= current_user.articles.unread.count %></b> unread 

@@ -20,7 +20,7 @@
           <b><%= current_user.articles.unread.count %></b> <a href='/unread'>unread</a> 
         </span>
         <span class='attribution'>
-          <a href='http://twitter.com/<%= article.twitter_screen_name %>/statuses/<%= article.tweet_id %>' title="<%= article.tweet_text %>">via @<%= article.twitter_screen_name %></a>
+          <a href='http://twitter.com/<%= article.twitter_screen_name %>/statuses/<%= article.tweet_id %>' title="<%= article.tweet_text %>">via <b>@<%= article.twitter_screen_name %></b></a>
         </span>
         <span class='archived'>
           <% if article.read? %>
