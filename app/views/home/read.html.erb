@@ -1,10 +1,7 @@
 <%= render :partial => '/shared/pic' %>
 
 <h1>
-  <div class='tilde'>
-    <a href='/' title='Home - Give Good Sunflower' class='tilde'><img src='/images/sunflower.png' class='sunflower' /></a>
-  </div>
-  <%= @article.title %>
+  <%= truncate(@article.title, :length => 100, :separator => ' ') %>
 </h1>
 <div class='url'>
   &lfloor; <%= link_to truncate(@article.url, :length => 150), @article.url %>
