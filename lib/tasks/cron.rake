@@ -31,6 +31,7 @@ task :cron => :environment do
 
         begin
           doc = Pismo::Document.new(url)
+          next if doc.html_body.length < 500 # we only want decent length articles to read
 
           title = if url =~ /theatlantic.com/
             doc.html_title
