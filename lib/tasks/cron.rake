@@ -31,7 +31,7 @@ task :cron => :environment do
 
         begin
           doc = Pismo::Document.new(url)
-          next if doc.html_body.length < 500 # we only want decent length articles to read
+          next if doc.body.length < 100 # we only want decent length articles to read
 
           article = user.articles.create(
             :tweet_id => tweet.id,
