@@ -17,9 +17,9 @@
           Or try your <a href='/archives'>archives</a> for something to re-read!
         <% end %>
       <% elsif current_user.articles.unread.count > 0 && current_user.articles.read.count > 0 %>
-        You have <%= pluralize(current_user.articles.unread.count, 'thing') %> <a href='/r'>to read</a>, and <%= pluralize(current_user.articles.read.count, 'thing') %> <a href='/archives'>archived</a>.
+        You have <%= pluralize(current_user.articles.unread.count, 'new thing') %> <a href='/r'>in your stream</a>, and <%= pluralize(current_user.articles.read.count, 'thing') %> <a href='/archives'>archived</a>.
       <% else %>
-        You have <%= pluralize(current_user.articles.unread.count, 'thing') %> <a href='/r'>to read</a>.
+        You have <%= pluralize(current_user.articles.unread.count, 'new thing') %> <a href='/r'>in your stream</a>.
       <% end %>
     <% else %>
       O hai?
