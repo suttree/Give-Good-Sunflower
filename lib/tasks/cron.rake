@@ -39,9 +39,9 @@ task :cron => :environment do
             :tweet_text => tweet.text,
             :url => url,
             :favicon => doc.favicon,
-            :title => doc.html_title,
+            :title => clean_up(doc.html_title),
             :author => doc.author,
-            :lede => doc.lede,
+            :lede => clean_up(doc.lede),
             :keywords => '',
             :html_body => clean_up(doc.html_body),
             :body => clean_up(doc.body)
@@ -85,5 +85,6 @@ def clean_up(text)
   entities.each do |entity|
     text.gsub!(/entity/, ' ')
   end
+  text.gsub!(/\n/, ' ')
   text.scan(/[[:print:]]/).join
 end
