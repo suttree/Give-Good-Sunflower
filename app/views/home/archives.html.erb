@@ -23,7 +23,7 @@
         First read <%= time_ago_in_words(article.read_at) %> ago.
       </span>
     </div>
-    <%= article.html_body.gsub!(/\n/, ' ').html_safe %>
+    <%= article.html_body.gsub(/\n/, ' ').html_safe %>
   </div>
   <div class='cta'>
     <ul>

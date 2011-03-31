@@ -17,7 +17,7 @@
     <span class='remaining'>
       <b><%= current_user.articles.unread.count %></b> unread 
     </span>
-    <%= @article.html_body.gsub!(/\n/, ' ').html_safe %>
+    <%= @article.html_body.gsub(/\n/, ' ').html_safe %>
   </div>
   <div class='cta'>
     <ul>
