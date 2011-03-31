@@ -9,7 +9,7 @@
 <div class='dock'>
 </div>
 <div class='article'>
-  <%= @article.html_body.html_safe %>
+  <%= @article.html_body.gsub!(/\n/, ' ').html_safe %>
 </div>
 <div class='cta'>
   <ul>
