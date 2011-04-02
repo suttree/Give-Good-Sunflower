@@ -150,7 +150,7 @@ h2 {
 h3 {
   color: #133750;
   margin-top: 1em;
-  font-size: 1em;
+  font-size: 0.8em;
   font-weight: bold;
   line-height: 1.5em; /* 36px */
 }
@@ -216,6 +216,8 @@ div.home li {
 
 div.home ul li {
   margin: 0;
+  font-size: 0.75em;
+  line-height: 1.5em;
   list-style-type: square; 
   list-style-position: inside;
 }
