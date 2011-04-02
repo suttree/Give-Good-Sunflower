@@ -147,6 +147,13 @@ h2 {
   line-height: 1.5em; /* 24px */
 }
 
+h3 {
+  color: #133750;
+  font-size: 0.75em;
+  font-weight: bold;
+  line-height: 1.0em; /* 36px */
+}
+
 div.sunflower {
   text-align: left;
   color: #133753;
@@ -202,6 +209,12 @@ div.home ol {
 
 div.home li {
   margin: 1em 0;
+  list-style-type: square; 
+  list-style-position: inside;
+}
+
+div.home ul.li {
+  margin: 0;
   list-style-type: square; 
   list-style-position: inside;
 }
