@@ -149,9 +149,10 @@ h2 {
 
 h3 {
   color: #133750;
-  font-size: 0.75em;
+  margin-top: 1em;
+  font-size: 1em;
   font-weight: bold;
-  line-height: 1.0em; /* 36px */
+  line-height: 1.5em; /* 36px */
 }
 
 div.sunflower {
@@ -213,7 +214,7 @@ div.home li {
   list-style-position: inside;
 }
 
-div.home ul.li {
+div.home ul li {
   margin: 0;
   list-style-type: square; 
   list-style-position: inside;
