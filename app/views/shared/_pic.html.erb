@@ -1,4 +1,4 @@
-<% if current_user %>
+<% if current_user && current_user.picture_url %>
   <div class='pic'>
     <%= image_tag current_user.picture_url, :title => 'O hai, ' + current_user.login %>
   </div>
