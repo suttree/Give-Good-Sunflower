@@ -1,7 +1,5 @@
-<div class='pic'>
-  <% begin %>
+<% if current_user %>
+  <div class='pic'>
     <%= image_tag current_user.picture_url, :title => 'O hai, ' + current_user.login %>
-  <% rescue %>
-    <%= current_user.inspect %>
-  <% end %>
-</div>
+  </div>
+<% end %>
