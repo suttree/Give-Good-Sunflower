@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110111122744) do
+ActiveRecord::Schema.define(:version => 20110627094041) do
 
   create_table "articles", :force => true do |t|
     t.integer  "user_id",                          :null => false
@@ -29,6 +29,8 @@ ActiveRecord::Schema.define(:version => 20110111122744) do
     t.datetime "read_at"
     t.text     "tweet_text"
   end
+
+  add_index "articles", ["read_at"], :name => "index_articles_on_read_at"
 
   create_table "email_addresses", :force => true do |t|
     t.string   "email"
