@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110627094041) do
+ActiveRecord::Schema.define(:version => 20110704100749) do
 
   create_table "articles", :force => true do |t|
     t.integer  "user_id",                          :null => false
@@ -63,5 +63,7 @@ ActiveRecord::Schema.define(:version => 20110627094041) do
     t.datetime "updated_at"
     t.integer  "last_tweet_id",  :limit => 8
   end
+
+  add_index "users", ["remember_token"], :name => "index_users_on_remember_token"
 
 end
