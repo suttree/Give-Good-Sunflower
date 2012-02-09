@@ -229,6 +229,7 @@ div.article p {
 
 div.article img {
   display: block;
+  float: middle;
   margin: 0.5em 0px;
   max-width: 700px;
   max-height: 500px;
