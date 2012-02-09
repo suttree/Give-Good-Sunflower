@@ -21,17 +21,18 @@ task :cron => :environment do
         url = unshorten(url)
         puts url
 
-        next if url.include? "http://fb.me"
-        next if url.include? "http://yfrog.com"
-        next if url.include? "http://twitpic.com"
-        next if url.include? "http://instagr.am"
-        next if url.include? "http://www.youtube.com"
-        next if url.include? "http://www.tweekly.fm"
-        next if url.include? "http://foursquare.com"
+        next if url.include? "fb.me"
+        next if url.include? "yfrog.com"
+        next if url.include? "twitpic.com"
+        next if url.include? "instagr.am"
+        next if url.include? "youtube.com"
+        next if url.include? "tweekly.fm"
+        next if url.include? "foursquare.com"
+        next if url.include? "thisismyjam.com"
 
         begin
           doc = Pismo::Document.new(url)
-          next if doc.body.length < 100 # we only want decent length articles to read
+          next if doc.body.length < 500 # we only want decent length articles to read
 
           article = user.articles.create(
             :tweet_id => tweet.id,
