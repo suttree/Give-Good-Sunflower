@@ -2,25 +2,8 @@
   <%= render :partial => '/shared/pic' %>
 
   <% @articles.each do |article| %>
-    <div class='meta'>
-      <span class='tilde'>
-        <a href='/'>«&nbsp;Home</a>
-      </span>
-      <span class='remaining'>
-        <b><%= current_user.articles.unread.count %></b> <a href='/unread'>unread</a> 
-      </span>
-      <span class='attribution'>
-        <a href='http://twitter.com/<%= article.twitter_screen_name %>/statuses/<%= article.tweet_id %>' title="<%= article.tweet_text %>">via <b>@<%= article.twitter_screen_name %></b></a>
-      </span>
-      <span class='archived'>
-        <% if article.read? %>
-          First read <%= time_ago_in_words(article.read_at) %> ago.
-        <% end %>
-      </span>
-    </div>
-
     <h1 class='<%= article.read? ? 'read' : 'unread' %>'>
-      <%= truncate(article.title, :length => 100, :separator => ' ') %>&nbsp;<%= link_to '#', read_path(article), :class => 'permalink', :title => 'Permalink' %>
+      <%= truncate(article.title, :length => 125, :separator => ' ') %>&nbsp;<%= link_to '#', read_path(article), :class => 'permalink', :title => 'Permalink' %>
     </h1>
     <div class='url'>
       &lfloor;&nbsp;<%= link_to truncate(article.url, :length => 110, :separator => ' '), article.url %>
@@ -29,6 +12,22 @@
       <%= render :partial => 'ajax_simple_pagination' %>
     </div>
     <div class='article'>
+      <div class='meta'>
+        <span class='tilde'>
+          <a href='/'>«&nbsp;Home</a>
+        </span>
+        <span class='remaining'>
+          <b><%= current_user.articles.unread.count %></b> <a href='/unread'>unread</a> 
+        </span>
+        <span class='attribution'>
+          <a href='http://twitter.com/<%= article.twitter_screen_name %>/statuses/<%= article.tweet_id %>' title="<%= article.tweet_text %>">via <b>@<%= article.twitter_screen_name %></b></a>
+        </span>
+        <span class='archived'>
+          <% if article.read? %>
+            First read <%= time_ago_in_words(article.read_at) %> ago.
+          <% end %>
+        </span>
+      </div>
       <%= article.html_body.gsub(/\n/, ' ').html_safe %>
     </div>
     <div class='cta'>
