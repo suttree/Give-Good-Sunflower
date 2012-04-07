@@ -1,3 +1,8 @@
+desc "Delete old articles"
+task :tidy => :environment do
+  Article.destroy_all( ['updated_at <?', 1.month.ago] )
+end
+
 desc "Import tweets and store the resulting linked content"
 task :cron => :environment do
   User.twitter.order('random()').each do |user|
