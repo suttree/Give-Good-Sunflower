@@ -32,14 +32,15 @@ task :cron => :environment do
         url = unshorten(url)
         puts url
 
-        next if url.include? "fb.me"
-        next if url.include? "yfrog.com"
-        next if url.include? "twitpic.com"
-        next if url.include? "instagr.am"
-        next if url.include? "youtube.com"
-        next if url.include? "tweekly.fm"
-        next if url.include? "foursquare.com"
-        next if url.include? "thisismyjam.com"
+        next if url.include? 'fb.me'
+        next if url.include? '4sq.com'
+        next if url.include? 'yfrog.com'
+        next if url.include? 'twitpic.com'
+        next if url.include? 'instagr.am'
+        next if url.include? 'youtube.com'
+        next if url.include? 'tweekly.fm'
+        next if url.include? 'foursquare.com'
+        next if url.include? 'thisismyjam.com'
 
         begin
           doc = Pismo::Document.new(url)
