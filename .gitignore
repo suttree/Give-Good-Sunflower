@@ -7,3 +7,4 @@ tmp/**/*
 *.swp
 todo.txt
 .DS_Store
+.env

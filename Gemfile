@@ -1,4 +1,5 @@
-source 'http://rubygems.org'
+source "https://rubygems.org"
+ruby "1.8.7"
 
 gem 'pg'
 gem 'rails', '3.0.3'
